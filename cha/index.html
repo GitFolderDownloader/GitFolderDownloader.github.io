@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GitHub Directory Downloader</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+  <header>
+    <h1>GitHub Downloader</h1>
+    <p>Download files or folders from GitHub instantly</p>
+  </header>
+
+  <section class="input-card">
+    <input id="githubUrl" placeholder="Paste GitHub file or folder URL here…" />
+    <input id="tokenInput" type="password" placeholder="GitHub Token (optional)" />
+
+    <div class="options">
+      <label>
+        <input type="checkbox" id="zipToggle" checked />
+        Download as ZIP
+      </label>
+
+      <select id="themeSelect"></select>
+      <input type="color" id="accentPicker" />
+    </div>
+
+    <button id="downloadBtn">Download</button>
+  </section>
+
+  <section id="preview"></section>
+
+  <section class="progress">
+    <div id="progressText"></div>
+    <div class="progress-bar">
+      <div id="progressFill"></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Client-side • No server • Open-source ready</span>
+  </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

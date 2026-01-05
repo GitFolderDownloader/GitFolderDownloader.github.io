@@ -1,71 +1,50 @@
-# DownGD <img src="logo.svg" width="50" height="50" align="left">
+# GitZip Pro 🚀
 
-> Download directory from a GitHub repo
+A powerful, pixel-perfect, single-page web application to download files or folders from GitHub repositories. It supports public URLs, private repositories (via Token), and requires **no server**.
 
-GitHub doesn’t let you download a single folder from a repo, which might be necessary when you just need a few files from a large repository.
+## ✨ Features
 
-This tool will handle the download of all the files in a directory, in a single click, after you entered your token.
+- **Download Sub-folders**: Download any specific folder from a repo as a ZIP.
+- **Client-Side Only**: Works 100% in the browser (GitHub Pages / Vercel compatible).
+- **Smart Routing**: Share links like `mysite.com/#/github.com/user/repo` to auto-start downloads.
+- **Private Repo Support**: Enter a Personal Access Token (stored locally) to access private files.
+- **Beautiful UI**: Smooth animations, file previews, and progress bars.
+- **Theming**: 8 Themes including Dracula, Cyberpunk, AMOLED, and more.
 
-> You can create a [new token here](https://github.com/settings/personal-access-tokens/new), [example](https://imgbb.com/VWBGvhHm).
+## 🛠️ Installation / Deployment
 
+Since this requires no build step, deployment is instant.
 
-The download starts automatically when you visit pass the link to the GitHub directory as `url` parameter, like:
+### Option 1: GitHub Pages (Recommended)
+1. Fork this repository (or create a new one).
+2. Upload `index.html`, `style.css`, `script.js`, and `wiki.html`.
+3. Go to **Settings > Pages**.
+4. Select `main` branch and click **Save**.
+5. Your site is live!
 
-[**downgd.github.io/downgd.github.io/**`?url=https://github.com/mrdoob/three.js/tree/dev/build`](https://downgd.github.io/downgd.github.io/?url=https://github.com/mrdoob/three.js/tree/dev/build)
+### Option 2: Local Use
+1. Download the files.
+2. Open `index.html` in Chrome/Edge/Firefox.
+3. *Note: LocalStorage features work, but some browsers restrict clipboard access on local files.*
 
-You can also specify download filename by adding `filename` parameter, like:
+## 🔗 How to Use Smart Links
 
-[**downgd.github.io/downgd.github.io/**`?url=https://github.com/mrdoob/three.js/tree/dev/build&filename=three-js-build`](https://downgd.github.io/downgd.github.io/?url=https://github.com/mrdoob/three.js/tree/dev/build&filename=three-js-build) to save the file as **three-js-build.zip**.
+To share a direct download link with a friend, simply add the GitHub URL after the hash (`#`):
 
-This is an alternative to the existing [GitZip](https://kinolien.github.io/gitzip/) and [DownGit](https://minhaskamal.github.io/DownGit/) but without the cruft.
+`https://your-site.github.io/#/github.com/facebook/react/tree/main/packages`
 
-## Development Guide
+When the user visits this link, the app will:
+1. Parse the URL.
+2. Auto-fill the input.
+3. Immediately start fetching and zipping the folder.
 
-To run the project locally or contribute, follow these steps:
+## 🔑 Private Repositories
 
-### Prerequisites
+1. Generate a GitHub Token (Settings > Developer Settings > Personal Access Tokens).
+2. Scopes needed: `repo` (for private) or just public access.
+3. Open GitZip Pro > Click Gear Icon (⚙️).
+4. Paste token. It is saved in your browser's LocalStorage and never sent to any 3rd party server.
 
-Make sure you have the following installed:
+## 🤝 Contributing
 
-- [Node.js](https://nodejs.org/)
-- [Git](https://git-scm.com/)
-
-### Setup
-
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/downgd/downgd.github.io
-   cd downgd.github.io
-   ```
-
-2. **Install dependencies:**
-
-   ```bash
-   npm install
-   ```
-
-3. **Start development server:**
-
-   ```bash
-   npm start
-   
-   # or
-   
-   npm run watch:build
-   ```
-
-   This runs:
-
-   * TypeScript in watch mode
-   * Parcel dev server at [http://localhost:1234](http://localhost:1234)
-   * Vitest in watch mode for unit testing
-
-## Related
-
-- [list-github-dir-content](https://github.com/fregante/list-github-dir-content) - List all the files in a GitHub repo’s directory
-- [Refined GitHub](https://github.com/refined-github/refined-github) - Browser extension that adds a link to this app to GitHub (and much more)
-
-## License
-
-MIT © [M Ramzan Ch](http://twitter.com/rm4814691)
+Feel free to open issues or submit PRs. The code is written in vanilla JS/CSS for maximum simplicity and performance.

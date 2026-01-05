@@ -4,67 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DownGD - Wiki & Documentation</title>
 
-    <!-- SEO MetaTags -->
-    <meta name="title" content="DownGD" />
-    <meta name="description"
-        content="The fastest tool to download specific GitHub folders, sub-directories, or files as ZIP. Supports private repos, custom tokens, and 8+ themes. 100% Client-side.">
-    <meta name="copyright" content="MicroResearch Corporation" />
-    <meta name="keywords"
-        content="DownGD, DownGD Github,pro bandey ,megamind-Solution, rm4814691,github,github directory,github downloader, download github folder, git zip, download github subdirectory, download single file github, github directory downloader, client-side git" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="downgd.github.io" />
-    <meta property="og:title" content="DownGD" />
-    <meta property="og:description"
-        content="The fastest tool to download specific GitHub folders, sub-directories, or files as ZIP. Supports private repos, custom tokens, and 8+ themes. 100% Client-side.">
-    <meta property="og:image"
-        content="http://res.cloudinary.com/dpu5ywrox/image/upload/v1767638625/hb4cjilreshiwh2ewr1i.png" />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="downgd.github.io" />
-    <meta property="twitter:title" content="DownGD" />
-    <meta property="twitter:description"
-        content="The fastest tool to download specific GitHub folders, sub-directories, or files as ZIP. Supports private repos, custom tokens, and 8+ themes. 100% Client-side.">
-    <meta property="twitter:image"
-        content="http://res.cloudinary.com/dpu5ywrox/image/upload/v1767638625/hb4cjilreshiwh2ewr1i.png" />
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#4ade80">
-    <meta name="language" content="English">
-
-
-    <!-- PWA Data -->
-    <link href="./manifest.json" rel="manifest" />
-    <link rel="canonical" href="https://DownGD.github.io/">
-    <link href="./src/icon.png" rel="data" />
-    <link href="./src/icon.png" rel="apple-touch-icon" sizes="180x180" />
-    <link href="./src/icon.png" rel="android-chrome-192x192" sizes="192x192" />
-    <link href="./src/icon.png" rel="android-chrome-512x512" sizes="512x512" />
-    <link href="./src/icon.png" rel="icon" sizes="32x32" />
-    <link href="./src/icon.png" rel="icon" sizes="16x16" />
-    <link href="./src/icon.png" rel="icon" />
-
-
-    <!-- Performance Optimization (Pre-connect to CDNs & APIs) -->
-    <link rel="preconnect" href="https://api.github.com">
-    <link rel="preconnect" href="https://raw.githubusercontent.com">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="dns-prefetch" href="https://api.github.com">
-    <!-- Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-    <!-- StyleSheets -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
-    <link rel="stylesheet" href="./src/style.css">
-
-    <title>DownGD | Advanced GitHub Downloader</title>
+<script>navigator.serviceWorker.register("src/sw.js")</script> 
+<link rel="manifest" href="manifest.json" />    <link rel="stylesheet" href="../src/style.css">
 </head>
 
-<body>
+<body style="overflow-y:auto ;">
 
-    <div class="app-container">
-
-        <div class="bg-watermark">
+    <div class="wiki-container">
+                <div class="bg-watermark">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
                 <path
                     d="M0 0 C42.24 0 84.48 0 128 0 C128 0.66 128 1.32 128 2 C129.32 2 130.64 2 132 2 C132 2.66 132 3.32 132 4 C132.66 4 133.32 4 134 4 C134 4.66 134 5.32 134 6 C134.66 6 135.32 6 136 6 C136 6.66 136 7.32 136 8 C136.66 8 137.32 8 138 8 C138 8.66 138 9.32 138 10 C138.66 10 139.32 10 140 10 C140 10.66 140 11.32 140 12 C140.66 12 141.32 12 142 12 C142 13.32 142 14.64 142 16 C142.66 16 143.32 16 144 16 C144 16.66 144 17.32 144 18 C144.66 18 145.32 18 146 18 C146 19.32 146 20.64 146 22 C146.66 22 147.32 22 148 22 C148 22.66 148 23.32 148 24 C148.66 24 149.32 24 150 24 C150 24.66 150 25.32 150 26 C150.66 26 151.32 26 152 26 C152 27.32 152 28.64 152 30 C152.66 30 153.32 30 154 30 C154 30.66 154 31.32 154 32 C155.32 32 156.64 32 158 32 C158 32.66 158 33.32 158 34 C159.32 34 160.64 34 162 34 C162 34.66 162 35.32 162 36 C254.4 36 346.8 36 442 36 C442 36.66 442 37.32 442 38 C443.32 38 444.64 38 446 38 C446 38.66 446 39.32 446 40 C447.32 40 448.64 40 450 40 C450 40.66 450 41.32 450 42 C450.66 42 451.32 42 452 42 C452 42.66 452 43.32 452 44 C452.66 44 453.32 44 454 44 C454 44.66 454 45.32 454 46 C454.66 46 455.32 46 456 46 C456 47.32 456 48.64 456 50 C456.66 50 457.32 50 458 50 C458 51.32 458 52.64 458 54 C458.66 54 459.32 54 460 54 C460.00496522 55.92077095 460.00496522 55.92077095 460.01003075 57.88034534 C460.08899804 88.25699936 460.1781987 118.63360407 460.28005161 149.01018931 C460.29257092 152.7466201 460.30500363 156.48305117 460.31738281 160.21948242 C460.3210818 161.33529664 460.3210818 161.33529664 460.32485552 162.47365256 C460.36461122 174.52845217 460.3973461 186.58326119 460.42749982 198.6380882 C460.45858144 211.0015967 460.49717665 223.36506516 460.54279006 235.72852868 C460.57071226 243.3613549 460.59272905 250.99415173 460.60726251 258.62701537 C460.6190216 264.47362113 460.64121941 270.32015751 460.66738319 276.16671753 C460.67648509 278.56976966 460.68215524 280.9728375 460.68421364 283.37590599 C460.68751776 286.64612717 460.70294489 289.91606882 460.7215271 293.18623352 C460.718625 294.62639492 460.718625 294.62639492 460.71566427 296.09565049 C460.72312976 296.96898914 460.73059525 297.84232778 460.73828697 298.74213123 C460.74056529 299.49739497 460.74284362 300.25265871 460.74519098 301.03080922 C460.89354595 303.32060232 460.89354595 303.32060232 463 306 C463.19498227 308.5462391 463.27905784 310.95743895 463.25 313.5 C463.25773437 314.17675781 463.26546875 314.85351562 463.2734375 315.55078125 C463.25884811 319.24919257 463.10264442 320.84603337 461 324 C460.67478946 325.99593196 460.67478946 325.99593196 460.68115234 328.19604492 C460.66128265 329.03668991 460.64141296 329.8773349 460.62094116 330.74345398 C460.60938995 331.64666885 460.59783875 332.54988373 460.5859375 333.48046875 C460.56657135 334.40845779 460.5472052 335.33644684 460.5272522 336.29255676 C460.46745756 339.25744425 460.42107145 342.22237057 460.375 345.1875 C460.33682012 347.19728259 460.29776838 349.20704881 460.2578125 351.21679688 C460.16175607 356.14439842 460.07772451 361.07207658 460 366 C459.34 366 458.68 366 458 366 C458 367.32 458 368.64 458 370 C457.34 370 456.68 370 456 370 C456 370.66 456 371.32 456 372 C454.68 372 453.36 372 452 372 C452 372.66 452 373.32 452 374 C450.23910034 373.94332153 450.23910034 373.94332153 448.44262695 373.88549805 C444.02707509 373.76112394 439.61418866 373.72480943 435.19702148 373.71313477 C433.29692816 373.69624862 431.39687925 373.6564472 429.49780273 373.59204102 C417.48914603 372.92666066 417.48914603 372.92666066 407.04833984 377.92578125 C404.78049855 380.16126884 402.83491334 382.53945745 400.87573242 385.04370117 C398.33034287 388.04706941 396.15843543 388.94880401 392.33198547 389.65742493 C388.72800837 389.60731368 385.36465654 389.3022996 382 388 C379.64355183 385.05267048 379.64355183 385.05267048 378.51659459 383.31249684 C375.16161025 378.48217284 371.43205711 375.55377527 365.64593863 374.23628592 C355.67870522 373.08012095 345.63693957 373.2799289 335.61843979 373.40660393 C331.0016043 373.45063996 326.38518699 373.4191361 321.76828003 373.39706421 C313.78060597 373.36909615 305.79418545 373.3883976 297.80664635 373.44031334 C286.25842725 373.51530293 274.71106234 373.51821552 263.16264961 373.50384996 C244.42402685 373.4824835 225.68598475 373.51895875 206.94750977 373.59204102 C188.75085155 373.66288574 170.55446575 373.70634494 152.35766602 373.71313477 C151.23498409 373.71356318 150.11230216 373.71399159 148.95559957 373.71443298 C143.32312302 373.71641389 137.69064649 373.7178581 132.05816972 373.71903551 C85.37182554 373.72948851 38.68603254 373.83391062 -8 374 C-8 373.34 -8 372.68 -8 372 C-9.32 372 -10.64 372 -12 372 C-12 371.34 -12 370.68 -12 370 C-12.66 370 -13.32 370 -14 370 C-14 369.34 -14 368.68 -14 368 C-14.66 368 -15.32 368 -16 368 C-16 251.84 -16 135.68 -16 16 C-15.34 16 -14.68 16 -14 16 C-14 14.68 -14 13.36 -14 12 C-13.34 12 -12.68 12 -12 12 C-12 10.68 -12 9.36 -12 8 C-11.34 8 -10.68 8 -10 8 C-10 7.34 -10 6.68 -10 6 C-8.68 6 -7.36 6 -6 6 C-6 5.34 -6 4.68 -6 4 C-5.34 4 -4.68 4 -4 4 C-4 3.34 -4 2.68 -4 2 C-2.68 2 -1.36 2 0 2 C0 1.34 0 0.68 0 0 Z "
@@ -86,114 +35,96 @@
                     fill="var(--accent)" transform="translate(495,393)" />
             </svg>
         </div>
-
-        <header>
-            <div class="logo">
-                <img src="./src/icon.png" alt="logo" srcset="" style="width: 60px;">
-                <h1>DownGD <span>2.O</span></h1>
+        <header class="wiki-header">
+            <div class="logo" style="justify-content: flex-start;width: -webkit-fill-available;">
+                <a href="../" class="primary-btn"
+                    style="padding: 0.5rem;white-space: nowrap;max-width: fit-content;text-decoration: none;">◀ Back</a>
+                <h1>DownGD  <span>2.O</span></h1>
             </div>
-            <div class="header-controls">
-                <a href="./wiki/" class="icon-btn" title="Help & Wiki">
-                    <i class="ri-book-open-line"></i>
-                </a>
-                <button id="theme-btn" class="icon-btn" title="Change Theme">
-                    <i class="ri-palette-line"></i>
-                </button>
-                <button id="settings-btn" class="icon-btn" title="Settings">
-                    <i class="ri-settings-3-line"></i>
-                </button>
+            <p>DownGD 2.O. Open Source Client-Side App.</p>
+
+            <div style="display: flex; gap: 10px; justify-content: center;">
+
             </div>
         </header>
 
-        <main>
-            <div class="input-card">
-                <div class="url-input-wrapper">
-                    <i class="ri-link input-icon"></i>
-                    <input type="text" id="repo-url" placeholder="Paste GitHub URL..." autocomplete="off">
-                    <button id="paste-btn" title="Paste"><i class="ri-clipboard-line"></i></button>
-                </div>
-                <div class="url-input-wrapper compact">
-                    <i class="ri-pencil-line input-icon"></i>
-                    <input type="text" id="custom-filename" placeholder="Custom filename (optional)..."
-                        autocomplete="off">
-                </div>
+        <!-- Quick Start Section -->
+        <section class="wiki-card">
+            <h2><i class="ri-rocket-2-fill"></i> Quick Start</h2>
 
-                <div class="action-area">
-                    <div class="button-group">
-                        <button id="download-btn" class="primary-btn">
-                            <span>Download</span>
-                            <i class="ri-download-cloud-2-line"></i>
-                        </button>
-                        <button id="share-btn" class="primary-btn" title="Copy Shareable Link" style="
-    max-width: fit-content;
-    margin-left: 5px;">
-                            <i class="ri-share-forward-line"></i>
-                        </button>
-                    </div>
+            <div class="step">
+                <div class="step-num">1</div>
+                <div>
+                    <h3>Copy GitHub URL</h3>
+                    <p>Go to any GitHub repository, navigate to the specific folder you want, and copy the URL from your
+                        browser's address bar.</p>
+                        <P style="margin-bottom: 0;">sample link is below copy and paste in input bar</P>
+                    <div class="code-block">https://github.com/facebook/react/tree/main/packages/react-dom</div>
                 </div>
             </div>
 
-            <!-- Status & Preview -->
-            <div id="status-card" class="status-card hidden">
-                <div class="status-header">
-                    <h3 id="status-title">Ready</h3>
-                    <span id="file-count" class="badge">0 Files</span>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div>
+                    <h3>Paste & Download</h3>
+                    <p>Paste the link into DownGD 2.O. The app automatically detects the branch, recursive path, and
+                        file structure. Click <strong>Download</strong> to get a ZIP file.</p>
                 </div>
-                <div class="progress-container">
-                    <div class="progress-bar" id="progress-bar"></div>
-                </div>
-                <p id="status-text">Waiting...</p>
-                <div class="file-preview" id="file-preview"></div>
             </div>
-        </main>
 
-        <div id="settings-modal" class="modal hidden">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2>Settings</h2>
-                    <button type="button" class="close-modal"><i class="ri-close-line"></i></button>
-                </div>
-                <div class="modal-body">
-                    <div class="setting-group">
-                        <label for="github-token">GitHub Token (Optional)</label>
-                        <div class="input-with-icon">
-                            <i class="ri-key-2-line"></i>
-                            <input type="password" id="github-token" placeholder="ghp_xxxxxxxxxxxxxxxx">
-                        </div>
-                    </div>
-                    <div class="setting-group">
-                        <div class="toggle-row">
-                            <span>Force ZIP for single files</span>
-                            <label class="switch">
-                                <input type="checkbox" id="force-zip">
-                                <span class="slider round"></span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="setting-group">
-                        <label>Theme</label>
-                        <select id="theme-select">
-                            <option value="light">Light</option>
-                            <option value="dark">Dark</option>
-                            <option value="amoled">AMOLED</option>
-                            <option value="dracula">Dracula</option>
-                            <option value="cyberpunk">Cyberpunk</option>
-                            <option value="forest" selected>Forest</option> <!-- Add 'selected' here -->
-                            <option value="sunset">Sunset</option>
-                            <option value="monokai">Monokai</option>
-                        </select>
-                    </div>
-                    <div class="setting-group">
-                        <label>Accent Color</label>
-                        <input type="color" id="accent-color" value="#4ade80" style="width:100%">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="primary-btn close-modal">Save</button>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div>
+                    <h3>Private Repos?</h3>
+                    <p>Click the <strong>Settings</strong> (Gear icon) on the main page, paste your GitHub Personal
+                        Access Token, and save. Tokens are stored locally on your device.</p>
                 </div>
             </div>
-        </div>
-        <div id="toast-container"></div>
+        </section>
+
+        <section class="wiki-card">
+            <h2><i class="ri-link-m"></i> Smart Links</h2>
+            <p>You can generate direct download links for your team or documentation using the URL query feature.</p>
+
+            <h3>How it works:</h3>
+            <p>Append the GitHub URL after <code>?=</code> to the DownGD 2.O URL:</p>
+            <div class="code-block">
+                https://DownGD.github.io/<code>?=</code>/user/repo/tree/branch/folder
+                <br />
+                <br />
+                 https://DownGD.github.io/<code>?url=</code>/user/repo/tree/branch/folder
+            </div>
+            <br>
+            <p>When a user opens this link, DownGD 2.O will <strong>automatically launch</strong>, fetch the files,
+                and prepare the download without any user input.</p>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="wiki-card">
+            <h2><i class="ri-star-smile-fill"></i> Features</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="ri-folder-zip-line"></i>
+                    <h3>Recursive Zip</h3>
+                    <p>Maintains full folder structure inside the downloaded ZIP.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="ri-lock-password-line"></i>
+                    <h3>Private Support</h3>
+                    <p>Securely supports private repos via GitHub Tokens.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="ri-palette-line"></i>
+                    <h3>8+ Themes</h3>
+                    <p>Cyberpunk, Dracula, AMOLED, and more built-in.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="ri-smartphone-line"></i>
+                    <h3>Mobile Ready</h3>
+                    <p>Works perfectly on iOS and Android browsers.</p>
+                </div>
+            </div>
+        </section>
         <footer style="width:-webkit-fill-available; text-align:center;">
             © 2025 <a href="https:github.com/MicroResearch-Corporation/"
                 style="text-decoration:none; color:var(--accent); ">MicroResearch Corporation®</a>. All Rights
@@ -202,10 +133,19 @@
                 style="text-decoration:none; color:var(--accent); "> M
                 Ramzan Ch</a>
         </footer>
-
-        <script src="./src/script.js"></script>
+    </div>
 
 
 </body>
+
+<script>
+    const savedTheme = localStorage.getItem("theme") || "forest";
+    if (savedTheme !== "light") {
+        document.body.classList.add(`theme-${savedTheme}`);
+    }
+    const savedAccent = localStorage.getItem("accent") || "#4ade80";
+    document.documentElement.style.setProperty("--primary-color", savedAccent);
+
+</script>
 
 </html>

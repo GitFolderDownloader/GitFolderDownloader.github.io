@@ -1,0 +1,57 @@
+{
+  "name": "DownGD",
+  "short_name": "DownGD",
+  "start_url": "./",
+  "display": "standalone",
+  "description": "The fastest tool to download specific GitHub folders, sub-directories, or files as ZIP. Supports private repos, custom tokens, and 8+ themes. 100% Client-side.",
+  "lang": "en",
+  "theme_color": "#4ade80",
+  "background_color": "#1e2820",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "./src/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./src/icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "display_override": ["window-controls-overlay"],
+  "protocol_handlers": [
+    {
+      "protocol": "mailto",
+      "url": "/newEmail?to=%s"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://iili.io/fNetXhN.png",
+      "type": "image/png",
+      "description": "A screenshot of the home page"
+    },
+    {
+      "src": "https://iili.io/fNetwBt.png",
+      "type": "image/png",
+      "description": "A screenshot of the home page with downloaadin"
+    },
+    {
+      "src": "https://iili.io/fNetNEX.png",
+      "type": "image/png",
+      "description": "A screenshot of the wiki page"
+    }
+  ],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "See Wiki",
+      "url": "./wiki/",
+      "description": "see wiki page"
+    }
+  ]
+}

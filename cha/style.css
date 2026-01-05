@@ -1,0 +1,90 @@
+:root {
+  --bg: #0d1117;
+  --fg: #c9d1d9;
+  --accent: #58a6ff;
+  --card: #161b22;
+}
+
+[data-theme="light"] {
+  --bg: #ffffff;
+  --fg: #24292e;
+  --card: #f6f8fa;
+}
+
+[data-theme="dracula"] {
+  --bg: #282a36;
+  --fg: #f8f8f2;
+  --card: #44475a;
+  --accent: #bd93f9;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, sans-serif;
+}
+
+.app {
+  max-width: 900px;
+  margin: auto;
+  padding: 1rem;
+}
+
+header {
+  text-align: center;
+}
+
+.input-card {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 10px;
+  display: grid;
+  gap: 0.6rem;
+}
+
+input, select, button {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: none;
+}
+
+button {
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+.options {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.progress {
+  margin-top: 1rem;
+}
+
+.progress-bar {
+  height: 6px;
+  background: #333;
+  border-radius: 4px;
+}
+
+#progressFill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+
+#preview {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+footer {
+  margin-top: 2rem;
+  text-align: center;
+  opacity: 0.6;
+}
