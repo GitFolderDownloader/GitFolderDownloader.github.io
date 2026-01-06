@@ -1,4 +1,4 @@
-# GitZip Pro 🚀
+# DownGD 2.O 🚀
 
 A powerful, pixel-perfect, single-page web application to download files or folders from GitHub repositories. It supports public URLs, private repositories (via Token), and requires **no server**.
 
@@ -8,7 +8,7 @@ A powerful, pixel-perfect, single-page web application to download files or fold
 - **Client-Side Only**: Works 100% in the browser (GitHub Pages / Vercel compatible).
 - **Smart Routing**: Share links like `mysite.com/#/github.com/user/repo` to auto-start downloads.
 - **Private Repo Support**: Enter a Personal Access Token (stored locally) to access private files.
-- **Beautiful UI**: Smooth animations, file previews, and progress bars.
+- **Beautiful UI**: Smooth animations, file previews, and 2.Ogress bars.
 - **Theming**: 8 Themes including Dracula, Cyberpunk, AMOLED, and more.
 
 ## 🛠️ Installation / Deployment
@@ -42,7 +42,7 @@ When the user visits this link, the app will:
 
 1. Generate a GitHub Token (Settings > Developer Settings > Personal Access Tokens).
 2. Scopes needed: `repo` (for private) or just public access.
-3. Open GitZip Pro > Click Gear Icon (⚙️).
+3. Open DownGD 2.O > Click Gear Icon (⚙️).
 4. Paste token. It is saved in your browser's LocalStorage and never sent to any 3rd party server.
 
 ## 🤝 Contributing
