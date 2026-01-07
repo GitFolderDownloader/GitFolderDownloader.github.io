@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "DownGD Download Button",
+  "version": "1.0.0",
+  "description": "Adds a DownGD Api Download button to GitHub repo and directory menus.",
+  "permissions": [],
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "128": "icon.png"
+  }
+}
+
+

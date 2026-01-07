@@ -11,27 +11,15 @@ A powerful, pixel-perfect, single-page web application to download files or fold
 - **Beautiful UI**: Smooth animations, file previews, and 2.Ogress bars.
 - **Theming**: 8 Themes including Dracula, Cyberpunk, AMOLED, and more.
 
-## 🛠️ Installation / Deployment
+## 🔗 How to Use Samrt Links
 
-Since this requires no build step, deployment is instant.
+To share a direct download link with a friend, simply add the GitHub URL after the hash (`?=`):
 
-### Option 1: GitHub Pages (Recommended)
-1. Fork this repository (or create a new one).
-2. Upload `index.html`, `style.css`, `script.js`, and `wiki.html`.
-3. Go to **Settings > Pages**.
-4. Select `main` branch and click **Save**.
-5. Your site is live!
+### Direct
+> [https://downgd.github.io/?=https://github.com/facebook/react/tree/main/packages](https://downgd.github.io/?=https://github.com/facebook/react/tree/main/packages)
 
-### Option 2: Local Use
-1. Download the files.
-2. Open `index.html` in Chrome/Edge/Firefox.
-3. *Note: LocalStorage features work, but some browsers restrict clipboard access on local files.*
-
-## 🔗 How to Use Smart Links
-
-To share a direct download link with a friend, simply add the GitHub URL after the hash (`#`):
-
-`https://your-site.github.io/#/github.com/facebook/react/tree/main/packages`
+### With Name
+> [https://downgd.github.io/?=https://github.com/facebook/react/tree/main/packages&name=react-core](https://downgd.github.io/?=https://github.com/facebook/react/tree/main/packages&name=react-core)
 
 When the user visits this link, the app will:
 1. Parse the URL.
@@ -44,7 +32,93 @@ When the user visits this link, the app will:
 2. Scopes needed: `repo` (for private) or just public access.
 3. Open DownGD 2.O > Click Gear Icon (⚙️).
 4. Paste token. It is saved in your browser's LocalStorage and never sent to any 3rd party server.
+Got it 👍
+Below are **ONLY the two new sections** you asked for — **Script details** and **Extension details** — written to drop directly into your existing README **without changing anything else**.
+
+---
+## 🔗 Api
+
+To embed a direct download link with in your website/page, simply use this pattern
+
+### embed as a link
+```html
+<a href="https://downgd.github.io/api/?=https://github.com/facebook/react/tree/main/packages&name=react-cor"></a>
+```
+### or use like this js
+```javascript
+function triggerDownload() {
+    const repo = "https://github.com/facebook/react/tree/main/packages";
+    const apiUrl = `https://git-zip-pro.vercel.app/api/?url=${repo}`;
+ 
+    window.open(apiUrl, '_blank');
+}
+```
+## 📜 Userscript
+
+DownGD also provides a **GitHub-integrated userscript** that adds a native-looking **Download button directly inside GitHub menus**.
+
+### ✨ What the Userscript Does
+
+* Injects a **“Download Repo / Folder / File”** action into GitHub’s context menus
+* Automatically detects:
+
+  * **Repository menu** → shows **Download Repo**
+  * **Folder menu** → shows **Download Folder**
+  * **File menu** → shows **Download**
+* Opens a **GitHub-themed custom popup** to set an optional download name
+* Auto-fills the popup with the current repo / folder / file name
+* Fully matches GitHub light & dark themes
+* Uses the official **DownGD API** under the hood
+
+### 🧩 Supported Script Runners
+
+* Tampermonkey
+* Violentmonkey
+* ScriptRunner (Chromium-based extensions)
+* Other userscript-compatible extensions
+
+### 🛠️ How to Install
+
+1. Install a userscript manager (Tampermonkey / ScriptRunner).
+2. Create a **new userscript**.
+3. Paste the provided [DownGD userscript](https://downgd.github.io/script/downgd-download-button-user.js) code or direct link in url bar.
+4. Save and enable the script.
+5. Visit any GitHub repository, folder, or file.
+6. Open the GitHub menu → click **Download Repo / Folder / Download**.
+
+> No configuration required. Works instantly on GitHub pages.
+
+---
+
+## 🧩 Browser Extension
+
+The DownGD userscript can also be packaged as a **lightweight browser extension** using ScriptRunner-style extensions.
+
+## [Download Now](https://downgd.github.io/api/?=https://github.com/DownGD/downgd.github.io/tree/main/extension&name=Extension)
+### 🚀 Extension Capabilities
+
+* Zero background services
+* No permissions beyond GitHub pages
+* Runs fully client-side
+* Injects UI only when GitHub menus are detected
+* SPA-safe (works with GitHub Turbo / PJAX navigation)
+
+### 📦 Extension Use Cases
+
+* Personal daily GitHub usage
+* Developers frequently downloading subfolders
+* Lightweight alternative to full GitHub downloader extensions
+* No tracking, no analytics, no servers
+
+### 🔐 Privacy
+
+* No data is collected
+* No GitHub tokens are accessed by the script
+* Downloads are handled entirely by **DownGD API** in a new tab
+
+---
+
 
 ## 🤝 Contributing
 
-Feel free to open issues or submit PRs. The code is written in vanilla JS/CSS for maximum simplicity and performance.
+Feel free to open issues or submit PRs. The code is written in JS/CSS for maximum simplicity and performance.

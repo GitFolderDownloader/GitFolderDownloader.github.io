@@ -53,7 +53,7 @@ You can use an `iframe` or `window.open` to trigger downloads from your own webs
 ```javascript
 function triggerDownload() {
     const repo = "https://github.com/facebook/react/tree/main/packages";
-    const apiUrl = `https://git-zip-pro.vercel.app/api.html?url=${repo}`;
+    const apiUrl = `https://git-zip-pro.vercel.app/api/?url=${repo}`;
  
     window.open(apiUrl, '_blank');
 }
