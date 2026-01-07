@@ -1,14 +1,10 @@
-
-
 const API_BASE = "https://api.github.com/repos";
 const RAW_BASE = "https://raw.githubusercontent.com";
-
 
 const config = {
     token: localStorage.getItem("gh_token") || "",
     controller: new AbortController()
 };
-
 
 const ui = {
     card: document.getElementById("card"),
@@ -18,19 +14,27 @@ const ui = {
     bar: document.getElementById("bar")
 };
 
-
 (function init() {
-
     const params = new URLSearchParams(window.location.search);
     
     let url = params.get("url") || params.get(""); 
     const customName = params.get("name");
     
+    // --- NEW: Parse Limit Parameters ---
+    // We use undefined if not present, so we can handle defaults later
+    const startLimit = params.has("st") ? parseInt(params.get("st")) : null;
+    const maxLimit = params.has("mx") ? parseInt(params.get("mx")) : null;
 
     if (!url) {
-       
         const search = window.location.search.substring(1); 
+        // Logic to extract URL if it's the first param without a key
+        // Note: This might need adjustment if params like &st= are first, 
+        // but assuming url is usually first or named "url="
         if(search.startsWith("=")) url = search.substring(1);
+        else if(!search.includes("url=") && search.includes("&")) {
+             // Handle case: ?github.com/user/repo&st=50
+             url = search.split("&")[0];
+        }
     }
 
     if (!url) return setError("Missing URL", "Please provide a GitHub link.");
@@ -41,10 +45,11 @@ const ui = {
         else url = "https://github.com/" + url;
     }
 
-    startDownload(url, customName);
+    // Pass limits to startDownload
+    startDownload(url, customName, startLimit, maxLimit);
 })();
 
-async function startDownload(url, saveName) {
+async function startDownload(url, saveName, startLimit, maxLimit) {
     try {
         const parsed = parseGitHubUrl(url);
         if (!parsed) throw new Error("Invalid GitHub URL");
@@ -60,7 +65,8 @@ async function startDownload(url, saveName) {
         if (parsed.type === "blob") {
             await processSingleFile(parsed, saveName);
         } else {
-            await processFolder(parsed, saveName);
+            // Pass limits to processFolder
+            await processFolder(parsed, saveName, startLimit, maxLimit);
         }
 
         handleSuccess();
@@ -69,7 +75,6 @@ async function startDownload(url, saveName) {
         setError("Error", err.message);
     }
 }
-
 
 function handleSuccess() {
     ui.card.classList.add("state-success");
@@ -81,27 +86,21 @@ function handleSuccess() {
 
     setTimeout(() => {
         if (returnUrl && returnUrl.startsWith("http")) {
-
             ui.text.innerText = "Returning...";
             window.location.href = returnUrl;
         } 
         else if (window.history.length > 1 && document.referrer) {
-
             ui.text.innerText = "Returning to page...";
             window.history.back();
         } 
         else {
-
             ui.text.innerText = "Closing tab...";
-            
             window.close();
-
             try { window.opener = null; window.open("", "_self"); window.close(); } catch (e) {}
 
             setTimeout(() => {
                 if (!window.closed) {
                     ui.text.innerText = "Download complete. You can close this tab.";
-                    
                     if (document.referrer) {
                         ui.text.innerText = "Returning...";
                         window.location.href = document.referrer;
@@ -112,29 +111,51 @@ function handleSuccess() {
     }, 1500);
 }
 
-
-
-async function processFolder(parsed, customName) {
+async function processFolder(parsed, customName, startOpt, maxOpt) {
     ui.title.innerText = "Fetching files...";
     const data = await fetchAPI(`/${parsed.user}/${parsed.repo}/git/trees/${parsed.branch}?recursive=1`);
     const targetPath = parsed.path ? parsed.path + "/" : "";
-    const files = data.tree.filter(f => f.type === "blob" && (parsed.path === "" || f.path.startsWith(targetPath)));
+    
+    // Get ALL valid blobs first
+    const allFiles = data.tree.filter(f => f.type === "blob" && (parsed.path === "" || f.path.startsWith(targetPath)));
 
-    if (!files.length) throw new Error("Folder is empty");
+    if (!allFiles.length) throw new Error("Folder is empty");
 
-    ui.title.innerText = "Downloading...";
+    // --- NEW: Slicing Logic ---
+    let start = startOpt !== null ? startOpt : 0;
+    let end = maxOpt !== null ? maxOpt : allFiles.length;
+
+    // Validation to prevent crashes
+    if (start < 0) start = 0;
+    if (end > allFiles.length) end = allFiles.length;
+    if (start >= end) {
+        // Fallback: if user sets Start > End, just download everything or reset Start
+        start = 0; 
+        end = allFiles.length;
+    }
+
+    // Slice the files array
+    const filesToDownload = allFiles.slice(start, end);
+    const totalToDownload = filesToDownload.length;
+
+    if (totalToDownload === 0) throw new Error("No files in selected range");
+
+    ui.title.innerText = `Downloading (${start}-${end})...`;
+    ui.text.innerText = `Preparing ${totalToDownload} files...`;
+    // --------------------------
+
     const zip = new JSZip();
     let count = 0;
     const CHUNK = 5;
 
-    for (let i = 0; i < files.length; i += CHUNK) {
-        await Promise.all(files.slice(i, i + CHUNK).map(async f => {
+    for (let i = 0; i < totalToDownload; i += CHUNK) {
+        await Promise.all(filesToDownload.slice(i, i + CHUNK).map(async f => {
             try {
                 const content = await fetchContent(parsed, f);
                 const zipPath = parsed.path ? f.path.substring(parsed.path.length + 1) : f.path;
                 zip.file(zipPath, content);
                 count++;
-                updateProgress(count, files.length);
+                updateProgress(count, totalToDownload);
             } catch (e) {}
         }));
     }
@@ -159,7 +180,6 @@ async function processSingleFile(parsed, customName) {
     }
     saveAs(new Blob([content]), fileName);
 }
-
 
 async function fetchAPI(endpoint) {
     const headers = config.token ? { "Authorization": `token ${config.token}` } : {};

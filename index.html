@@ -31,9 +31,10 @@
     <meta name="theme-color" content="#4ade80">
     <meta name="language" content="English">
 
+
     <!-- PWA Data -->
     <link href="/manifest.json" rel="manifest" />
-    <script>navigator.serviceWorker.register("src/sw.js")</script> 
+    <script>navigator.serviceWorker.register("src/sw.js")</script>
     <link rel="canonical" href="https://DownGD.github.io/">
     <link href="/src/icon.png" rel="data" />
     <link href="/src/icon.png" rel="apple-touch-icon" sizes="180x180" />
@@ -42,6 +43,7 @@
     <link href="/src/icon.png" rel="icon" sizes="32x32" />
     <link href="/src/icon.png" rel="icon" sizes="16x16" />
     <link href="/src/icon.png" rel="icon" />
+
 
     <!-- Performance Optimization (Pre-connect to CDNs & APIs) -->
     <link rel="preconnect" href="https://api.github.com">
@@ -115,6 +117,20 @@
                     <i class="ri-pencil-line input-icon"></i>
                     <input type="text" id="custom-filename" placeholder="Custom filename (optional)..."
                         autocomplete="off">
+                </div>
+                <div style="display: flex; gap: 10px; margin-top: 10px;">
+
+                    <!-- Start Limit -->
+                    <div class="url-input-wrapper compact" style="flex: 1;">
+                        <span style="padding-left: 10px; color: #888; font-size: 12px;">Start:</span>
+                        <input type="number" id="start-limit" placeholder="0" min="0" style="padding-left: 5px;">
+                    </div>
+
+                    <!-- Max Limit -->
+                    <div class="url-input-wrapper compact" style="flex: 1;">
+                        <span style="padding-left: 10px; color: #888; font-size: 12px;">End:</span>
+                        <input type="number" id="max-limit" placeholder="All" min="1" style="padding-left: 5px;">
+                    </div>
                 </div>
 
                 <div class="action-area">
@@ -208,14 +224,3 @@
 </body>
 
 </html>
-<li data-has-description="false" class="prc-ActionList-ActionListItem-So4vC">
-    <a type="button" tabindex="0" aria-labelledby="_r_1d_--label  " id="_r_1d_"class="prc-ActionList-ActionListContent-KBb8-" data-size="medium">
-        <spanclass="prc-ActionList-Spacer-4tR2m"></span>
-        <span class="prc-ActionList-LeadingVisual-NBr28 prc-ActionList-VisualWrap-bdCsS">
-          <svg aria-hidden="true" focusable="false" class="octicon octicon-download" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"></path><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.749.749 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06l1.97 1.969Z"></path></svg>
-        </span>
-        <span class="prc-ActionList-ActionListSubContent-gKsFp" data-component="ActionList.Item--DividerContainer">
-            <span id="_r_1d_--label" class="prc-ActionList-ItemLabel-81ohH">Open with GitHub Desktop</span>
-        </span>
-    </button>
-</li>

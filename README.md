@@ -1,4 +1,4 @@
-# DownGD 2.O 🚀
+# DownGD 2.0 🚀
 
 A powerful, pixel-perfect, single-page web application to download files or folders from GitHub repositories. It supports public URLs, private repositories (via Token), and requires **no server**.
 
@@ -8,10 +8,11 @@ A powerful, pixel-perfect, single-page web application to download files or fold
 - **Client-Side Only**: Works 100% in the browser (GitHub Pages / Vercel compatible).
 - **Smart Routing**: Share links like `mysite.com/#/github.com/user/repo` to auto-start downloads.
 - **Private Repo Support**: Enter a Personal Access Token (stored locally) to access private files.
-- **Beautiful UI**: Smooth animations, file previews, and 2.Ogress bars.
+- **Partial Downloads**: Download large repositories in steps (e.g., files 0-100) to avoid browser limits.
+- **Beautiful UI**: Smooth animations, file previews, and progress bars.
 - **Theming**: 8 Themes including Dracula, Cyberpunk, AMOLED, and more.
 
-## 🔗 How to Use Samrt Links
+## 🔗 How to Use Smart Links
 
 To share a direct download link with a friend, simply add the GitHub URL after the hash (`?=`):
 
@@ -21,38 +22,55 @@ To share a direct download link with a friend, simply add the GitHub URL after t
 ### With Name
 > [https://downgd.github.io/?=https://github.com/facebook/react/tree/main/packages&name=react-core](https://downgd.github.io/?=https://github.com/facebook/react/tree/main/packages&name=react-core)
 
+### Partial / Range Download
+If a repository is too large, you can limit the number of files to download using `&st` (Start) and `&mx` (Max).
+> [https://downgd.github.io/?=https://github.com/facebook/react/tree/main/packages&st=50&mx=150](https://downgd.github.io/?=https://github.com/facebook/react/tree/main/packages&st=50&mx=150)
+
+*   `&st=50`: Start downloading from the 50th file.
+*   `&mx=150`: Stop downloading at the 150th file.
+
 When the user visits this link, the app will:
 1. Parse the URL.
-2. Auto-fill the input.
-3. Immediately start fetching and zipping the folder.
+2. Auto-fill the input and limit fields.
+3. Immediately start fetching and zipping files **50 to 150**.
 
 ## 🔑 Private Repositories
 
 1. Generate a GitHub Token (Settings > Developer Settings > Personal Access Tokens).
 2. Scopes needed: `repo` (for private) or just public access.
-3. Open DownGD 2.O > Click Gear Icon (⚙️).
+3. Open DownGD 2.0 > Click Gear Icon (⚙️).
 4. Paste token. It is saved in your browser's LocalStorage and never sent to any 3rd party server.
-Got it 👍
-Below are **ONLY the two new sections** you asked for — **Script details** and **Extension details** — written to drop directly into your existing README **without changing anything else**.
 
 ---
-## 🔗 Api
+## 🔗 API
 
-To embed a direct download link with in your website/page, simply use this pattern
+To embed a direct download link within your website/page, simply use this pattern. The API also supports the `&st` and `&mx` parameters.
 
-### embed as a link
+### Embed as a link
 ```html
-<a href="https://downgd.github.io/api/?=https://github.com/facebook/react/tree/main/packages&name=react-cor"></a>
+<!-- Download all files -->
+<a href="https://downgd.github.io/api/?=https://github.com/facebook/react/tree/main/packages&name=react-core">Download Core</a>
+
+<!-- Download files 0 to 100 only -->
+<a href="https://downgd.github.io/api/?=https://github.com/facebook/react/tree/main/packages&name=react-core&st=0&mx=100">Download Part 1</a>
 ```
-### or use like this js
+
+### Use via JavaScript
 ```javascript
 function triggerDownload() {
     const repo = "https://github.com/facebook/react/tree/main/packages";
-    const apiUrl = `https://git-zip-pro.vercel.app/api/?url=${repo}`;
+    
+    // Optional: Add limits for large folders
+    const params = "&st=0&mx=200"; 
+    
+    const apiUrl = `https://git-zip-pro.vercel.app/api/?url=${repo}${params}`;
  
     window.open(apiUrl, '_blank');
 }
 ```
+
+---
+
 ## 📜 Userscript
 
 DownGD also provides a **GitHub-integrated userscript** that adds a native-looking **Download button directly inside GitHub menus**.
@@ -61,7 +79,6 @@ DownGD also provides a **GitHub-integrated userscript** that adds a native-looki
 
 * Injects a **“Download Repo / Folder / File”** action into GitHub’s context menus
 * Automatically detects:
-
   * **Repository menu** → shows **Download Repo**
   * **Folder menu** → shows **Download Folder**
   * **File menu** → shows **Download**
@@ -95,6 +112,7 @@ DownGD also provides a **GitHub-integrated userscript** that adds a native-looki
 The DownGD userscript can also be packaged as a **lightweight browser extension** using ScriptRunner-style extensions.
 
 ## [Download Now](https://downgd.github.io/api/?=https://github.com/DownGD/downgd.github.io/tree/main/extension&name=Extension)
+
 ### 🚀 Extension Capabilities
 
 * Zero background services
@@ -117,7 +135,6 @@ The DownGD userscript can also be packaged as a **lightweight browser extension*
 * Downloads are handled entirely by **DownGD API** in a new tab
 
 ---
-
 
 ## 🤝 Contributing
 

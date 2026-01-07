@@ -46,6 +46,19 @@ You can also use the hash or `?=` syntax:
 ```
 https://DownGD.github.io/api/?=https://github.com/facebook/react/tree/main/packages
 ```
+### Partial / Range Download
+If a repository is too large, you can limit the number of files to download using `&st` (Start) and `&mx` (Max).
+```html
+https://downgd.github.io/?=https://github.com/facebook/react/tree/main/packages&st=50&mx=150
+```
+
+*   `&st=50`: Start downloading from the 50th file.
+*   `&mx=150`: Stop downloading at the 150th file.
+
+When the user visits this link, the app will:
+1. Parse the URL.
+2. Auto-fill the input and limit fields.
+3. Immediately start fetching and zipping files **50 to 150**.
 
 ### 4. Integration Example (JavaScript)
 You can use an `iframe` or `window.open` to trigger downloads from your own website:
