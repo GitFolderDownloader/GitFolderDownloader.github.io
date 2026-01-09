@@ -56,11 +56,6 @@
     {
       "name": "Use API",
       "url": "./api/",
-      "description": "see wiki page"
-    },
-    {
-      "name": "Use API",
-      "url": "./api/",
       "description": "use api for"
     },
     {
