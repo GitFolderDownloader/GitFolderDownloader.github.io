@@ -9,30 +9,40 @@
     <script>navigator.serviceWorker.register("src/sw.js")</script>
     <link rel="stylesheet" type="text/css" href="/src/style.css">
     <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="/src/icon.png">
+    <!-- PreConnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <!-- StyleSheets -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
 </head>
 
 <body style="overflow-y:auto ;">
+    <div id="wiki-toc" class="wiki-toc">
+        <h3 style="margin-top:0;">Table of Contents</h3>
+        <ul id="wiki-toc-list" class="wiki-toc-list"></ul>
+    </div>
+
     <div class="wiki-container">
         <header class="wiki-header">
-            <div class="logo" style="justify-content: flex-start;width: -webkit-fill-available;"><a href="../"
-                    class="primary-btn"
+            <div class="logo" style="justify-content: flex-start;width: -webkit-fill-available;">
+                <a href="../" class="primary-btn" title="Go back to Home"
                     style="padding: 0.5rem;white-space: nowrap;max-width: fit-content;text-decoration: none;">◀ Back</a>
                 <h1>DownGD <span>2.O</span></h1>
             </div>
             <p>DownGD 2.O. Open Source Client-Side App.</p>
-            <div style="display: flex; gap: 10px; justify-content: center;"></div>
         </header>
 
+        <!-- Quick Start -->
         <section class="wiki-card">
-            <h2><i class="ri-rocket-2-fill"></i>Quick Start</h2>
+            <h2><span class="material-icons">rocket_launch</span>Quick Start</h2>
             <div class="step">
                 <div class="step-num">1</div>
                 <div>
                     <h3>Copy GitHub URL</h3>
                     <p>Go to any GitHub repository, navigate to the specific folder you want, and copy the URL from your
                         browser's address bar.</p>
-                    <P style="margin-bottom: 0;">sample link is below copy and paste in input bar</P>
+                    <p style="margin-bottom: 0;">Sample link to copy and paste in input bar:</p>
                     <div class="code-block">https://github.com/facebook/react/tree/main/packages/react-dom</div>
                 </div>
             </div>
@@ -42,109 +52,370 @@
                     <h3>Paste & Download</h3>
                     <p>Paste the link into DownGD 2.O. The app automatically detects the branch, recursive path, and
                         file structure. Click <strong>Download</strong> to get a ZIP file.</p>
+                    <p>Use the <strong>Paste</strong> button to automatically paste a GitHub URL from your clipboard.
+                    </p>
+                    <p>You can optionally set a custom filename in the input box to override the default download name.
+                    </p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-num">3</div>
                 <div>
                     <h3>Private Repos?</h3>
-                    <p>Click the <strong>Settings</strong>(Gear icon) on the main page, paste your GitHub Personal
+                    <p>Click the <strong>Settings</strong> (Gear icon) on the main page, paste your GitHub Personal
                         Access Token, and save. Tokens are stored locally on your device.</p>
                 </div>
             </div>
         </section>
 
+        <!-- Smart Links -->
         <section class="wiki-card">
-            <h2><i class="ri-link-m"></i>Smart Links</h2>
+            <h2><span class="material-icons">link</span>Smart Links</h2>
             <p>You can generate direct download links for your team or documentation using the URL query feature.</p>
             <h3>How it works:</h3>
-            <p>Append the GitHub URL after <code>?=</code>to the DownGD 2.O URL:</p>
-            <div class="code-block">https://DownGD.github.io/<code>?=</code>/user/repo/tree/branch/folder
-                <br /><br />https://DownGD.github.io/<code>?url=</code>/user/repo/tree/branch/folder </div><br>
+            <p>Append the GitHub URL after <code>?=</code> to the DownGD 2.O URL:</p>
+            <div class="code-block">
+                https://DownGD.github.io/<code>?=</code>/user/repo/tree/branch/folder<br /><br />
+                https://DownGD.github.io/<code>?url=</code>/user/repo/tree/branch/folder
+            </div><br>
             <p>When a user opens this link, DownGD 2.O will <strong>automatically launch</strong>, fetch the files, and
                 prepare the download without any user input.</p>
-        </section>
 
-        <!-- NEW API SECTION START -->
-        <section class="wiki-card">
-            <h2><i class="ri-terminal-window-line"></i>Headless API Mode</h2>
-            <p>Integrate DownGD into your own website using the minimal <code>/api/</code> endpoint. It features no input bar—just a clean loading animation.</p>
-            
-            <h3><i class="ri-cursor-line"></i> Integration Usage</h3>
-            <p>Use an <code>&lt;a&gt;</code> tag to link to the API. It will download the file and automatically return to your site.</p>
-            <div class="code-block">https://DownGD.github.io/api/?url=<code>GITHUB_LINK</code></div>
-            
-            <h3><i class="ri-settings-4-line"></i> Advanced Parameters</h3>
-            <div class="step">
-                <div class="step-num" style="font-size: 0.9rem;"><i class="ri-text"></i></div>
-                <div>
-                    <h3>Custom Filename</h3>
-                    <p>Force a specific name for the downloaded file:</p>
-                    <code style="display:block; margin-bottom:5px;">&name=my-backup-v1</code>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-num" style="font-size: 0.9rem;"><i class="ri-arrow-go-back-line"></i></div>
-                <div>
-                    <h3>Auto-Redirect</h3>
-                    <p>After downloading, the API automatically closes the tab or returns to the previous page. You can also force a return URL:</p>
-                    <code style="display:block; margin-bottom:5px;">&return=https://mysite.com/thank-you</code>
-                </div>
+            <h3>Advanced URL Parameters</h3>
+            <ul>
+                <li><code>&st=0</code> → Start file index (zero-based) for partial folder downloads</li>
+                <li><code>&mx=10</code> → Max file index (non-inclusive end index) for partial folder downloads</li>
+                <li><code>&name=my-backup.zip</code> → Custom filename (no extension required; .zip will be added if
+                    missing)</li>
+                <li><code>&return=https://mysite.com/thank-you</code> → Redirect after download (API/headless mode)</li>
+            </ul>
+
+            <h4>Examples</h4>
+            <div class="code-block">
+                <!-- Example: download first 10 files -->
+                https://DownGD.github.io/api/?url=https://github.com/user/repo/tree/main/folder&st=0&mx=10&name=part1<br><br>
+                <!-- Example: download a single file and return -->
+                https://DownGD.github.io/api/?url=https://github.com/user/repo/blob/main/readme.md&name=readme.md&return=https://example.com/
             </div>
         </section>
-        <!-- NEW API SECTION END -->
 
+        <!-- Headless API -->
         <section class="wiki-card">
-            <h2><i class="ri-star-smile-fill"></i>Features</h2>
+            <h2><span class="material-icons">terminal</span>Headless API Mode (detailed)</h2>
+            <p>The <code>/api/</code> endpoint (headless mode) is designed for automated downloads and link
+                integrations.
+                It runs without UI inputs and supports the same options as the main app through query parameters.</p>
+
+            <h3>Behavior</h3>
+            <ul>
+                <li>Resolves repository metadata (default branch) if the link points to a repo root.</li>
+                <li>Fetches the Git tree recursively for folders and builds a ZIP preserving folder structure.</li>
+                <li>Handles single-file downloads (supports forced ZIP via global setting in non-API mode; API endpoint
+                    will save single files directly unless .zip requested via <code>&name</code>).</li>
+                <li>Performs chunked downloads with concurrency (up to 5 simultaneous fetches) to improve performance
+                    while being considerate to rate limits.</li>
+                <li>After completion the endpoint will attempt to return:
+                    <ol>
+                        <li>Redirect to <code>&return</code> if provided and valid,</li>
+                        <li>otherwise go back in history if available,</li>
+                        <li>otherwise close the tab (or show a "close tab" message when not permitted).</li>
+                    </ol>
+                </li>
+            </ul>
+
+            <h3>Request Parameters Recap</h3>
+            <div class="code-block">
+                ?url=GITHUB_LINK &nbsp; (or use ?=GITHUB_LINK)<br>
+                &st=START_INDEX (zero-based)<br>
+                &mx=END_INDEX (end index, not inclusive — max files to include)<br>
+                &name=CUSTOM_FILENAME (optional)<br>
+                &return=URL_AFTER (optional)
+            </div>
+
+            <h3>Progress & Feedback</h3>
+            <p>The API page provides a simple progress card: title, numeric progress text, and a progress bar. When
+                using the API from other pages, the calling page should handle UX (e.g., show a spinner while the new
+                tab runs the API).</p>
+
+            <h3>Errors & Exit Codes</h3>
+            <ul>
+                <li><strong>Missing URL</strong> — page will show "Missing URL."</li>
+                <li><strong>Invalid GitHub URL</strong> — non-GitHub or malformed URL.</li>
+                <li><strong>Folder empty / No files found</strong> — thrown when selected path contains no blobs.</li>
+                <li><strong>Network Error</strong> — returned when raw content fetch fails (uncommon but possible).</li>
+                <li><strong>API errors</strong> — GitHub API errors (e.g., rate limit, repo not found) return GitHub's
+                    message.</li>
+            </ul>
+
+            <h3>Security & Tokens</h3>
+            <p>For private repositories you must provide a Personal Access Token (PAT). The app stores it
+                <em>locally</em> in <code>localStorage</code>. Recommended minimal scope:
+            </p>
+            <ul>
+                <li><code>repo</code> — gives full control of private repositories (required for reading private content
+                    via the API). For public-only usage, no token is required.</li>
+            </ul>
+            <p><strong>Important:</strong> Keep tokens secure — only use PATs you control. The app never sends tokens
+                anywhere except to GitHub's API from your browser session.</p>
+
+            <h3>Performance Notes</h3>
+            <ul>
+                <li>Files are downloaded in batches of up to 5 concurrent requests for speed and to reduce hitting API
+                    rate limits quickly.</li>
+                <li>If you plan to download very large repositories frequently, consider using a token and respecting
+                    GitHub rate limits.</li>
+            </ul>
+        </section>
+
+        <!-- Settings -->
+        <section class="wiki-card">
+            <h2><span class="material-icons">settings</span>Settings</h2>
+            <p>Click the <strong>Gear icon</strong> to open settings:</p>
+            <ul>
+                <li><strong>GitHub Token:</strong> Paste your Personal Access Token for private repo downloads. Stored
+                    locally only.</li>
+                <li><strong>Force ZIP:</strong> Force single files to download as ZIP (global behavior in web UI — note
+                    headless API will respect filename).</li>
+                <li><strong>Theme & Accent:</strong> Choose from 8+ themes or a custom accent color. Accent colors and
+                    theme selection are stored locally.</li>
+            </ul>
+        </section>
+
+        <!-- Partial Downloads -->
+        <section class="wiki-card">
+            <h2><span class="material-icons">view_week</span>Partial Folder Download (start/mx)</h2>
+            <p>Use <code>&st</code> and <code>&mx</code> to target a specific range of files inside a folder. This is
+                useful for:</p>
+            <ul>
+                <li>Large folders where downloading the whole tree is slow or unnecessary.</li>
+                <li>Splitting a folder into multiple archives (e.g., <code>?st=0&mx=100</code>,
+                    <code>?st=100&mx=200</code>).
+                </li>
+            </ul>
+            <p><strong>Indexing rules</strong>:</p>
+            <ul>
+                <li>Indexes are <strong>zero-based</strong> (first file is <code>st=0</code>).</li>
+                <li><code>mx</code> is treated as the end index (non-inclusive) — the code uses
+                    <code>slice(start, end)</code>.
+                </li>
+                <li>If <code>st &gt;= mx</code> or values are invalid, the script falls back to downloading the entire
+                    selection.</li>
+            </ul>
+        </section>
+
+        <!-- Preview & Progress -->
+        <section class="wiki-card">
+            <h2><span class="material-icons">pending_actions</span>Preview & Progress</h2>
+            <p>Before downloading, DownGD 2.O shows a live preview of the first 50 files and a progress bar during the
+                download process. The API/headless page also exposes a simple progress UI (title, numeric status, and a
+                bar).</p>
+        </section>
+
+        <!-- Extension / Integration -->
+        <section class="wiki-card">
+            <h2><span class="material-icons">extension</span>Browser Extension / GitHub Integration</h2>
+            <p>The integration script injects a small "Download" menu item into GitHub's context/action lists and
+                provides a lightweight modal to configure <code>name</code>, <code>st</code>, and <code>mx</code>.</p>
+
+            <h3>What the extension does</h3>
+            <ul>
+                <li>Detects the current GitHub page context (repo root, folder, or file) using the URL path.</li>
+                <li>Inserts a "Download Repo", "Download Folder", or "Download" menu item into GitHub's action lists.
+                </li>
+                <li>Shows a modal where you can set: <code>Name</code>, <code>st</code> (start) and <code>mx</code>
+                    (max).</li>
+                <li>Builds a final <code>/api/</code> URL with parameters and opens it in a new tab to run the headless
+                    download.</li>
+                <li>Uses a <code>MutationObserver</code> so it keeps working as GitHub updates the DOM.</li>
+            </ul>
+
+            <h3>Modal Options</h3>
+            <ul>
+                <li><strong>Name</strong> — the file name for the generated ZIP (if folder) or file. If you omit the
+                    extension, .zip will be added for folder downloads.</li>
+                <li><strong>st</strong> — start index (numeric). Leave empty to begin at index 0.</li>
+                <li><strong>mx</strong> — max index (numeric). Leave empty to use the folder's total file count.</li>
+            </ul>
+
+            <h3>How it constructs the URL</h3>
+            <div class="code-block">
+                finalUrl = 'https://downgd.github.io/api/?url=' + encodeURIComponent(location.href)
+                + '&name=' + encodeURIComponent(name)
+                + (st ? '&st=' + encodeURIComponent(st) : '')
+                + (mx ? '&mx=' + encodeURIComponent(mx) : '');
+            </div>
+
+            <h3>Installation / Usage</h3>
+            <ol>
+                <li>Install the browser extension or add this script as a userscript (Tampermonkey/Violentmonkey) — the
+                    injector relies on the modern GitHub DOM structure.</li>
+                <li>Open any GitHub repo/folder/file and open the action list (three-dot menu / context menu). You will
+                    see a new "Download ..." item inserted.</li>
+                <li>Click the item, set the options in the modal, and click <strong>Download</strong>. The API page
+                    opens in a new tab and performs the download.</li>
+            </ol>
+
+            <h3>Compatibility & Notes</h3>
+            <ul>
+                <li>Works with GitHub's current interface and uses <code>MutationObserver</code> to re-insert the item
+                    if GitHub re-renders menus.</li>
+                <li>Because the injector is DOM-based, any major GitHub layout change may break detection — you can
+                    update the script to match new CSS structures.</li>
+                <li>The injected menu item uses accessible markup but is implemented as a convenience — it does not
+                    require special GitHub permissions.</li>
+            </ul>
+        </section>
+
+        <!-- Troubleshooting & FAQ -->
+        <section class="wiki-card">
+            <h2><span class="material-icons">help</span>Troubleshooting & FAQ</h2>
+            <h3>Why do I get "No files in selected range"?</h3>
+            <p>Check your <code>st</code> and <code>mx</code> values — they are zero-based indices. If <code>st</code>
+                &ge; <code>mx</code>, the script will fallback to downloading everything.</p>
+
+            <h3>Network errors / raw.githubusercontent blocked</h3>
+            <p>Raw content is fetched from <code>raw.githubusercontent.com</code>. If you see network errors, check your
+                network, ad-blockers, or corporate proxies. Private repos require a token — raw fetch won't work for
+                private content.</p>
+
+            <h3>Token scopes — what do I need?</h3>
+            <p>For private content, provide a PAT with <code>repo</code> scope. For read-only public access, you do not
+                need a token.</p>
+
+            <h3>Rate limits & failures</h3>
+            <p>GitHub imposes rate limits on unauthenticated and authenticated requests. If you download many large
+                repos quickly, you may hit rate limits. Using a token increases your rate limit quota.</p>
+
+            <h3>Download takes too long</h3>
+            <p>Large repos can be slow. Use <code>&st</code> and <code>&mx</code> to download in chunks. JSZip keeps
+                everything client-side so memory is a limiting factor for very large zips.</p>
+        </section>
+
+        <!-- Features -->
+        <section class="wiki-card">
+            <h2><span class="material-icons">auto_awesome</span>Features</h2>
             <div class="feature-grid">
-                <div class="feature-item"><i class="ri-folder-zip-line"></i>
+                <div class="feature-item">
+                    <span class="material-icons">folder_zip</span>
                     <h3>Recursive Zip</h3>
                     <p>Maintains full folder structure inside the downloaded ZIP.</p>
                 </div>
-                <div class="feature-item"><i class="ri-lock-password-line"></i>
+                <div class="feature-item">
+                    <span class="material-icons">lock</span>
                     <h3>Private Support</h3>
                     <p>Securely supports private repos via GitHub Tokens.</p>
                 </div>
-                <div class="feature-item"><i class="ri-palette-line"></i>
+                <div class="feature-item">
+                    <span class="material-icons">palette</span>
                     <h3>8+ Themes</h3>
                     <p>Cyberpunk, Dracula, AMOLED, and more built-in.</p>
                 </div>
-                <div class="feature-item"><i class="ri-smartphone-line"></i>
+                <div class="feature-item">
+                    <span class="material-icons">smartphone</span>
                     <h3>Mobile Ready</h3>
                     <p>Works perfectly on iOS and Android browsers.</p>
                 </div>
-                
-                <!-- NEW API FEATURES START -->
-                <div class="feature-item"><i class="ri-server-line"></i>
+                <div class="feature-item">
+                    <span class="material-icons">code</span>
                     <h3>Headless Mode</h3>
                     <p>API version with no UI inputs, perfect for automated links.</p>
                 </div>
-                <div class="feature-item"><i class="ri-arrow-left-circle-line"></i>
+                <div class="feature-item">
+                    <span class="material-icons">reply</span>
                     <h3>Smart Return</h3>
                     <p>API automatically detects referrer and redirects back after download.</p>
                 </div>
-                <div class="feature-item"><i class="ri-pencil-ruler-2-line"></i>
+                <div class="feature-item">
+                    <span class="material-icons">brush</span>
                     <h3>Material Design 3</h3>
                     <p>API interface uses a beautiful MD3 Forest Minimalist theme.</p>
                 </div>
-                <!-- NEW API FEATURES END -->
-
+                <div class="feature-item">
+                    <span class="material-icons">insert_drive_file</span>
+                    <h3>Partial Downloads</h3>
+                    <p>Download only selected files from large folders using start/max limits.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="material-icons">content_paste</span>
+                    <h3>Clipboard Support</h3>
+                    <p>Paste GitHub URLs directly from clipboard with one click.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="material-icons">pending</span>
+                    <h3>Live Progress & Preview</h3>
+                    <p>See file previews and real-time progress bar during downloads.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="material-icons">notifications</span>
+                    <h3>Notifications</h3>
+                    <p>Toast messages for success, errors, clipboard actions, and settings save.</p>
+                </div>
             </div>
         </section>
-        <footer style="width:-webkit-fill-available; text-align:center;">© 2025 <a
-                href="https:github.com/MicroResearch-Corporation/"
+
+        <!-- Footer -->
+        <footer style="width:-webkit-fill-available; text-align:center;">© 2026 <a
+                href="https://github.com/MicroResearch-Corporation/" title="MicroResearch Corporation GitHub"
                 style="text-decoration:none; color:var(--accent); ">MicroResearch Corporation®</a>. All Rights
             Reserved.<br><br>Made with ♥ by <a aria-label="Visit M Ramzan Ch" href="https://mramzanch.blogspot.com/"
-                style="text-decoration:none; color:var(--accent); ">M Ramzan Ch</a></footer>
+                title="M Ramzan Ch Blog" style="text-decoration:none; color:var(--accent); ">M Ramzan Ch</a></footer>
     </div>
 </body>
+
+<script src="/src/tooltips.js"></script>
 <script>
     const savedTheme = localStorage.getItem("theme") || "forest";
     if (savedTheme !== "light") {
         document.body.classList.add(`theme-${savedTheme}`);
     }
     const savedAccent = localStorage.getItem("accent") || "#4ade80";
-    document.documentElement.style.setProperty("--primary-color", savedAccent);
+    document.documentElement.style.setProperty("--accent", savedAccent);
+
+</script>
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".feature-item h3").forEach(el => {
+        el.setAttribute("title", el.textContent.trim());
+    });
+
+    const headings = document.querySelectorAll(".wiki-container h2");
+    const tocList = document.getElementById("wiki-toc-list");
+
+    headings.forEach((h, index) => {
+        if (!h.id) {
+            h.id = "wiki-section-" + index;
+        }
+
+        let headingText = "";
+        h.childNodes.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE) {
+                headingText += node.textContent.trim();
+            }
+        });
+        if (!headingText) headingText = "Section " + (index + 1);
+        h.setAttribute("title", headingText);
+
+        const li = document.createElement("li");
+        li.style.marginBottom = "6px";
+        li.style.borderBottom = "0.5px dashed";
+
+        const a = document.createElement("a");
+        a.href = "#" + h.id;
+        a.innerText = headingText;
+        a.style.textDecoration = "none";
+        a.style.color = "var(--text-sec)";
+        a.style.cursor = "pointer";
+        a.title = headingText;
+        a.addEventListener("click", (e) => {
+            e.preventDefault();
+            document.getElementById(h.id).scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+
+        li.appendChild(a);
+        tocList.appendChild(li);
+    });
+});
 
 </script>
 

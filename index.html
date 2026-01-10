@@ -54,8 +54,11 @@
     <!-- Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <!-- PreConnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <!-- StyleSheets -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/src/style.css">
 
     <title>DownGD | Advanced GitHub Downloader</title>
@@ -64,7 +67,6 @@
 <body>
 
     <div class="app-container">
-
         <div class="bg-watermark">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
                 <path
@@ -87,7 +89,6 @@
                     fill="var(--accent)" transform="translate(495,393)" />
             </svg>
         </div>
-
         <header>
             <div class="logo">
                 <img src="/src/icon.png" alt="logo" srcset="" style="width: 60px;">
@@ -95,60 +96,63 @@
             </div>
             <div class="header-controls">
                 <a href="/wiki/" class="icon-btn" title="Help & Wiki">
-                    <i class="ri-book-open-line"></i>
+                    <span class="material-icons">menu_book</span>
                 </a>
                 <button id="theme-btn" class="icon-btn" title="Change Theme">
-                    <i class="ri-palette-line"></i>
+                    <span class="material-icons">palette</span>
                 </button>
                 <button id="settings-btn" class="icon-btn" title="Settings">
-                    <i class="ri-settings-3-line"></i>
+                    <span class="material-icons">settings</span>
                 </button>
             </div>
         </header>
 
         <main>
+            <div class="fix">
+                <p>before start see <a href="/wiki/">wiki</a> firstt</p>
+            </div>
             <div class="input-card">
                 <div class="url-input-wrapper">
-                    <i class="ri-link input-icon"></i>
-                    <input type="text" id="repo-url" placeholder="Paste GitHub URL..." autocomplete="off">
-                    <button id="paste-btn" title="Paste"><i class="ri-clipboard-line"></i></button>
+                    <span class="material-icons input-icon">add_link</span>
+                    <input type="text" id="repo-url" placeholder="Paste GitHub URL..." autocomplete="off"
+                        title="Enter GitHub repository or file URL">
+                    <button id="paste-btn" title="Paste from clipboard"><span
+                            class="material-icons">content_paste</span></button>
                 </div>
                 <div class="url-input-wrapper compact">
-                    <i class="ri-pencil-line input-icon"></i>
+                    <span class="material-icons input-icon">edit</span>
                     <input type="text" id="custom-filename" placeholder="Custom filename (optional)..."
-                        autocomplete="off">
+                        autocomplete="off" title="Enter a custom name for the downloaded file">
                 </div>
                 <div style="display: flex; gap: 10px; margin-top: 10px;">
 
-                    <!-- Start Limit -->
                     <div class="url-input-wrapper compact" style="flex: 1;">
-                        <span style="padding-left: 10px; color: #888; font-size: 12px;">Start:</span>
-                        <input type="number" id="start-limit" placeholder="0" min="0" style="padding-left: 5px;">
+                        <span class="material-icons input-icon">start</span>
+                        <input type="number" id="start-limit" placeholder="0" min="0" style="padding-left: 5px;"
+                            title="Enter the starting file index">
                     </div>
 
-                    <!-- Max Limit -->
                     <div class="url-input-wrapper compact" style="flex: 1;">
-                        <span style="padding-left: 10px; color: #888; font-size: 12px;">End:</span>
-                        <input type="number" id="max-limit" placeholder="All" min="1" style="padding-left: 5px;">
+                        <span class="material-icons input-icon">keyboard_tab</span>
+                        <input type="number" id="max-limit" placeholder="All" min="1" style="padding-left: 5px;"
+                            title="Enter the maximum number of files to download">
                     </div>
                 </div>
 
                 <div class="action-area">
                     <div class="button-group">
-                        <button id="download-btn" class="primary-btn">
+                        <button id="download-btn" class="primary-btn" title="Start download">
                             <span>Download</span>
-                            <i class="ri-download-cloud-2-line"></i>
+                            <span class="material-icons">download</span>
                         </button>
-                        <button id="share-btn" class="primary-btn" title="Copy Shareable Link" style="
-    max-width: fit-content;
-    margin-left: 5px;">
-                            <i class="ri-share-forward-line"></i>
+                        <button id="share-btn" class="primary-btn" style="min-width: 50px; max-width: fit-content;"
+                            title="Copy Shareable Link">
+                            <span class="material-icons">share</span>
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Status & Preview -->
             <div id="status-card" class="status-card hidden">
                 <div class="status-header">
                     <h3 id="status-title">Ready</h3>
@@ -161,64 +165,75 @@
                 <div class="file-preview" id="file-preview"></div>
             </div>
         </main>
-
         <div id="settings-modal" class="modal hidden">
             <div class="modal-content">
                 <div class="modal-header">
                     <h2>Settings</h2>
-                    <button type="button" class="close-modal"><i class="ri-close-line"></i></button>
+                    <button type="button" class="close-modal bb" title="Close settings">
+                        <span class="material-icons">close</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <div class="setting-group">
                         <label for="github-token">GitHub Token (Optional)</label>
                         <div class="input-with-icon">
-                            <i class="ri-key-2-line"></i>
-                            <input type="password" id="github-token" placeholder="ghp_xxxxxxxxxxxxxxxx">
+                            <span class="material-icons">vpn_key</span>
+                            <input type="password" id="github-token" placeholder="ghp_xxxxxxxxxxxxxxxx"
+                                title="Enter your GitHub Personal Access Token">
                         </div>
                     </div>
                     <div class="setting-group">
                         <div class="toggle-row">
                             <span>Force ZIP for single files</span>
                             <label class="switch">
-                                <input type="checkbox" id="force-zip">
+                                <input type="checkbox" id="force-zip"
+                                    title="Toggle force ZIP download for single files">
                                 <span class="slider round"></span>
                             </label>
                         </div>
                     </div>
                     <div class="setting-group">
                         <label>Theme</label>
-                        <select id="theme-select">
+                        <select id="theme-select" title="Select application theme">
                             <option value="light">Light</option>
                             <option value="dark">Dark</option>
                             <option value="amoled">AMOLED</option>
                             <option value="dracula">Dracula</option>
                             <option value="cyberpunk">Cyberpunk</option>
-                            <option value="forest" selected>Forest</option> <!-- Add 'selected' here -->
+                            <option value="forest" selected>Forest</option>
                             <option value="sunset">Sunset</option>
                             <option value="monokai">Monokai</option>
                         </select>
                     </div>
                     <div class="setting-group">
                         <label>Accent Color</label>
-                        <input type="color" id="accent-color" value="#4ade80" style="width:100%">
+                        <div style="display: flex;flex-direction: row;align-items: center;">
+                            <input type="color" id="accent-color" title="Choose a custom accent color">
+                            <button style="min-width: 50px; max-width: fit-content;" class="primary-btn" id="reset-accent-btn" title="reset accent color">
+                                <span class="material-icons">format_color_reset</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="primary-btn close-modal">Save</button>
+                    <button style="min-width: 50px; max-width: 50px;" id="save-settings-btn" class="primary-btn close-modal" title="Save settings">
+                        <span class="material-icons">save</span>
+                    </button>
                 </div>
             </div>
         </div>
         <div id="toast-container"></div>
         <footer style="width:-webkit-fill-available; text-align:center;">
-            © 2025 <a href="https://github.com/MicroResearch-Corporation/"
+            © 2025 <a href="https://github.com/MicroResearch-Corporation/" title="MicroResearch Corporation GitHub"
                 style="text-decoration:none; color:var(--accent); ">MicroResearch Corporation®</a>. All Rights
             Reserved.<br><br>
             Made with ♥ by <a aria-label="Visit M Ramzan Ch" href="https://mramzanch.blogspot.com/"
-                style="text-decoration:none; color:var(--accent); "> M
+                title="M Ramzan Ch Blog" style="text-decoration:none; color:var(--accent); "> M
                 Ramzan Ch</a>
         </footer>
 
         <script src="/src/script.js"></script>
+        <script src="/src/tooltips.js"></script>
 
 
 </body>
