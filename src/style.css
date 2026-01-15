@@ -131,6 +131,13 @@ body {
   transform: rotate(-15deg);
 }
 
+.bg-watermark.alt {
+  bottom: auto;
+  top: -28px;
+  right: auto;
+  left: -10px;
+}
+
 .bg-watermark svg {
   width: 100%;
   height: auto;

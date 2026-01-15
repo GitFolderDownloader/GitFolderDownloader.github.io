@@ -63,7 +63,6 @@
 
 <body>
 <div class="app-container" style="display: flex;justify-content: center;align-items: center;">
-
         <div class="bg-watermark">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
                 <path
@@ -108,7 +107,7 @@
         document.body.classList.add(`theme-${savedTheme}`);
     }
     const savedAccent = localStorage.getItem("accent") || "#4ade80";
-    document.documentElement.style.setProperty("--primary-color", savedAccent);
+    document.documentElement.style.setProperty("--accent", savedAccent);
 
 </script>
     <script src="api.js"></script>
