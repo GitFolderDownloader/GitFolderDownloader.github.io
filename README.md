@@ -1,4 +1,4 @@
-# DownGD 2.0 🚀
+# Git Folder Downloader 🚀
 
 A powerful, pixel-perfect, single-page web application to download files or folders from GitHub repositories. It supports public URLs, private repositories (via Token), and requires **no server**.
 
@@ -17,14 +17,14 @@ A powerful, pixel-perfect, single-page web application to download files or fold
 To share a direct download link with a friend, simply add the GitHub URL after the hash (`?=`):
 
 ### Direct
-> [https://downgd.github.io/?=https://github.com/facebook/react/tree/main/packages](https://downgd.github.io/?=https://github.com/facebook/react/tree/main/packages)
+> [https://GitFolderDownloader.github.io/?=https://github.com/facebook/react/tree/main/packages](https://GitFolderDownloader.github.io/?=https://github.com/facebook/react/tree/main/packages)
 
 ### With Name
-> [https://downgd.github.io/?=https://github.com/facebook/react/tree/main/packages&name=react-core](https://downgd.github.io/?=https://github.com/facebook/react/tree/main/packages&name=react-core)
+> [https://GitFolderDownloader.github.io/?=https://github.com/facebook/react/tree/main/packages&name=react-core](https://GitFolderDownloader.github.io/?=https://github.com/facebook/react/tree/main/packages&name=react-core)
 
 ### Partial / Range Download
 If a repository is too large, you can limit the number of files to download using `&st` (Start) and `&mx` (Max).
-> [https://downgd.github.io/?=https://github.com/facebook/react/tree/main/packages&st=50&mx=150](https://downgd.github.io/?=https://github.com/facebook/react/tree/main/packages&st=50&mx=150)
+> [https://GitFolderDownloader.github.io/?=https://github.com/facebook/react/tree/main/packages&st=50&mx=150](https://GitFolderDownloader.github.io/?=https://github.com/facebook/react/tree/main/packages&st=50&mx=150)
 
 *   `&st=50`: Start downloading from the 50th file.
 *   `&mx=150`: Stop downloading at the 150th file.
@@ -38,7 +38,7 @@ When the user visits this link, the app will:
 
 1. Generate a GitHub Token (Settings > Developer Settings > Personal Access Tokens).
 2. Scopes needed: `repo` (for private) or just public access.
-3. Open DownGD 2.0 > Click Gear Icon (⚙️).
+3. Open Git Folder Downloader > Click Gear Icon (⚙️).
 4. Paste token. It is saved in your browser's LocalStorage and never sent to any 3rd party server.
 
 ---
@@ -49,10 +49,10 @@ To embed a direct download link within your website/page, simply use this patter
 ### Embed as a link
 ```html
 <!-- Download all files -->
-<a href="https://downgd.github.io/api/?=https://github.com/facebook/react/tree/main/packages&name=react-core">Download Core</a>
+<a href="https://GitFolderDownloader.github.io/api/?=https://github.com/facebook/react/tree/main/packages&name=react-core">Download Core</a>
 
 <!-- Download files 0 to 100 only -->
-<a href="https://downgd.github.io/api/?=https://github.com/facebook/react/tree/main/packages&name=react-core&st=0&mx=100">Download Part 1</a>
+<a href="https://GitFolderDownloader.github.io/api/?=https://github.com/facebook/react/tree/main/packages&name=react-core&st=0&mx=100">Download Part 1</a>
 ```
 
 ### Use via JavaScript
@@ -73,7 +73,7 @@ function triggerDownload() {
 
 ## 📜 Userscript
 
-DownGD also provides a **GitHub-integrated userscript** that adds a native-looking **Download button directly inside GitHub menus**.
+Git Folder Downloader also provides a **GitHub-integrated userscript** that adds a native-looking **Download button directly inside GitHub menus**.
 
 ### ✨ What the Userscript Does
 
@@ -85,7 +85,7 @@ DownGD also provides a **GitHub-integrated userscript** that adds a native-looki
 * Opens a **GitHub-themed custom popup** to set an optional download name
 * Auto-fills the popup with the current repo / folder / file name
 * Fully matches GitHub light & dark themes
-* Uses the official **DownGD API** under the hood
+* Uses the official **Git Folder Downloader API** under the hood
 
 ### 🧩 Supported Script Runners
 
@@ -98,7 +98,7 @@ DownGD also provides a **GitHub-integrated userscript** that adds a native-looki
 
 1. Install a userscript manager (Tampermonkey / ScriptRunner).
 2. Create a **new userscript**.
-3. Paste the provided [DownGD userscript](https://downgd.github.io/script/downgd-download-button-user.js) code or direct link in url bar.
+3. Paste the provided [GitFolderDownloader userscript](https://GitFolderDownloader.github.io/script/GitFolderDownloader-download-button-user.js) code or direct link in url bar.
 4. Save and enable the script.
 5. Visit any GitHub repository, folder, or file.
 6. Open the GitHub menu → click **Download Repo / Folder / Download**.
@@ -109,9 +109,9 @@ DownGD also provides a **GitHub-integrated userscript** that adds a native-looki
 
 ## 🧩 Browser Extension
 
-The DownGD userscript can also be packaged as a **lightweight browser extension** using ScriptRunner-style extensions.
+The Git Folder Downloader userscript can also be packaged as a **lightweight browser extension** using ScriptRunner-style extensions.
 
-## [Download Now](https://downgd.github.io/api/?=https://github.com/DownGD/downgd.github.io/tree/main/extension&name=Extension)
+## [Download Now](https://GitFolderDownloader.github.io/api/?=https://github.com/GitFolderDownloader/GitFolderDownloader.github.io/tree/main/extension&name=Extension)
 
 ### 🚀 Extension Capabilities
 
@@ -132,7 +132,7 @@ The DownGD userscript can also be packaged as a **lightweight browser extension*
 
 * No data is collected
 * No GitHub tokens are accessed by the script
-* Downloads are handled entirely by **DownGD API** in a new tab
+* Downloads are handled entirely by **Git Folder Downloader API** in a new tab
 
 ---
 

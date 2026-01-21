@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "DownGD Download Button",
+  "name": "GitFolderDownloader Download Button",
   "version": "1.0.0",
-  "description": "Adds a DownGD Api Download button to GitHub repo and directory menus.",
+  "description": "Adds a Git Folder Downloader Api Download button to GitHub repo and directory menus.",
   "permissions": [],
   "content_scripts": [
     {

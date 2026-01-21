@@ -1,22 +1,22 @@
 
-# DownGD Api
+# GitFolderDownloader Api
 
 A minimalistic, Material Design 3 enabled web tool to download specific folders or files from GitHub repositories as ZIPs. Works strictly client-side.
 
 ## 🚀 Live Demo & API
-Access the main tool here: [https://DownGD.github.io/](https://DownGD.github.io/)
+Access the main tool here: [https://GitFolderDownloader.github.io/](https://GitFolderDownloader.github.io/)
 
-Access the API here: [https://DownGD.github.io/api/](https://DownGD.github.io/api/)
+Access the API here: [https://GitFolderDownloader.github.io/api/](https://GitFolderDownloader.github.io/api/)
 
 ---
 
 ## 🛠️ API Documentation (Headless Mode)
 
-DownGD Api includes a powerful "Headless API" page (`api.html`). This allows you to trigger downloads programmatically or via direct links without interacting with the main UI.
+Git Folder Downloader Api includes a powerful "Headless API" page (`api.html`). This allows you to trigger downloads programmatically or via direct links without interacting with the main UI.
 
 ### 1. Base URL
 ```
-https://DownGD.github.io/api/
+https://GitFolderDownloader.github.io/api/
 ```
 
 ### 2. Parameters
@@ -32,24 +32,24 @@ https://DownGD.github.io/api/
 #### A. Basic Folder Download
 Download the `packages` folder from the React repo:
 ```
-https://DownGD.github.io/api/?url=https://github.com/facebook/react/tree/main/packages
+https://GitFolderDownloader.github.io/api/?url=https://github.com/facebook/react/tree/main/packages
 ```
 
 #### B. Download with Custom Name
 Download the folder but save it as `react-core.zip`:
 ```
-https://DownGD.github.io/api/?url=https://github.com/facebook/react/tree/main/packages&filename=react-core
+https://GitFolderDownloader.github.io/api/?url=https://github.com/facebook/react/tree/main/packages&filename=react-core
 ```
 
 #### C. Short Syntax (Legacy Support)
 You can also use the hash or `?=` syntax:
 ```
-https://DownGD.github.io/api/?=https://github.com/facebook/react/tree/main/packages
+https://GitFolderDownloader.github.io/api/?=https://github.com/facebook/react/tree/main/packages
 ```
 ### Partial / Range Download
 If a repository is too large, you can limit the number of files to download using `&st` (Start) and `&mx` (Max).
 ```html
-https://downgd.github.io/?=https://github.com/facebook/react/tree/main/packages&st=50&mx=150
+https://GitFolderDownloader.github.io/?=https://github.com/facebook/react/tree/main/packages&st=50&mx=150
 ```
 
 *   `&st=50`: Start downloading from the 50th file.

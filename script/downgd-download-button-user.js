@@ -1,13 +1,13 @@
 // ==UserScript==
-// @name         DownGD Download Button
-// @namespace    https://downgd.github.io/wiki/
+// @name         GitFolderDownloader Download Button
+// @namespace    https://GitFolderDownloader.github.io/wiki/
 // @version      1.1.0
-// @description  Add smart download buttons to GitHub repo, folder, and file menus using DownGD API with optional range parameters
-// @author       DownGD
+// @description  Add smart download buttons to GitHub repo, folder, and file menus using Git Folder Downloader API with optional range parameters
+// @author       M Ramzan Ch
 // @match        https://github.com/*
-// @icon         https://downgd.github.io/src/icon.svg
-// @updateURL    https://downgd.github.io/script/downgd-download-button-user.js
-// @downloadURL  https://downgd.github.io/script/downgd-download-button-user.js
+// @icon         https://GitFolderDownloader.github.io/src/icon.svg
+// @updateURL    https://GitFolderDownloader.github.io/script/GitFolderDownloader-download-button-user.js
+// @downloadURL  https://GitFolderDownloader.github.io/script/GitFolderDownloader-download-button-user.js
 // @grant        none
 // ==/UserScript==
 
@@ -15,7 +15,7 @@
     'use strict';
    
     (() => {
-  const n = "downgd-modal";
+  const n = "GitFolderDownloader-modal";
 
   function e(e) {
     const linkPadding = e === "repo" ? "revert-layer" : "0";
@@ -36,7 +36,7 @@
     var r;
     return (
       (t.className = "prc-ActionList-ActionListItem-So4vC"),
-      (t.innerHTML = `<a class="prc-ActionList-ActionListContent-KBb8- prc-Link-Link-9ZwDx" role="menuitem" tabindex="-1" data-downgd="${e}" style="padding:${linkPadding};">
+      (t.innerHTML = `<a class="prc-ActionList-ActionListContent-KBb8- prc-Link-Link-9ZwDx" role="menuitem" tabindex="-1" data-GitFolderDownloader="${e}" style="padding:${linkPadding};">
         <span class="prc-ActionList-Spacer-4tR2m"></span>
         <span class="prc-ActionList-LeadingVisual-NBr28 prc-ActionList-VisualWrap-bdCsS">
         ${
@@ -160,7 +160,7 @@
             );
         })(o.name, (name, st, mx) => {
           // Construct URL
-          let finalUrl = `https://downgd.github.io/api/?url=${encodeURIComponent(location.href)}&name=${encodeURIComponent(name)}`;
+          let finalUrl = `https://GitFolderDownloader.github.io/api/?url=${encodeURIComponent(location.href)}&name=${encodeURIComponent(name)}`;
           
           if(st) finalUrl += `&st=${encodeURIComponent(st)}`;
           if(mx) finalUrl += `&mx=${encodeURIComponent(mx)}`;
@@ -187,7 +187,7 @@
             : null;
         })(n);
         o &&
-          (n.querySelector(`[data-downgd="${o}"]`) ||
+          (n.querySelector(`[data-GitFolderDownloader="${o}"]`) ||
             n.insertBefore(e(o), n.firstElementChild));
       });
   }

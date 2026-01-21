@@ -1,6 +1,6 @@
-##  DownGD Download Button (UserScript)
+##  Git Folder Downloader Download Button (UserScript)
 
-A **GitHub UI enhancement UserScript** that adds context-aware download buttons to GitHub repositories, folders, and files using the **DownGD API**.
+A **GitHub UI enhancement UserScript** that adds context-aware download buttons to GitHub repositories, folders, and files using the **Git Folder Downloader API**.
 
 Works with:
 
@@ -66,13 +66,13 @@ Works with:
 ## 🔗 Download URL format
 
 ```
-https://downgd.github.io/api/?url=<GITHUB_URL>&name=<CUSTOM_NAME>
+https://GitFolderDownloader.github.io/api/?url=<GITHUB_URL>&name=<CUSTOM_NAME>
 ```
 
 Example:
 
 ```
-https://downgd.github.io/api/?url=https://github.com/user/repo/tree/main/src&name=src
+https://GitFolderDownloader.github.io/api/?url=https://github.com/user/repo/tree/main/src&name=src
 ```
 
 ---
@@ -128,6 +128,6 @@ GPL 3 License – free to use, modify, and distribute.
 
 ## ⭐ Credits
 
-* **[DownGD](https://downgd.github.io/wiki/)**
+* **[Git Folder Downloader](https://GitFolderDownloader.github.io/wiki/)**
 * **[MicroResearch Corporation](https://MicroResearch-Corporation.github.io)**
 * **[Pro Bandey](https://Pro-Bandey.github.io)**

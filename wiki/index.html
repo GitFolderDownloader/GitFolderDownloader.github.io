@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DownGD - Wiki & Documentation</title>
+    <title>GitFolderDownloader - Wiki & Documentation</title>
 
     <script>navigator.serviceWorker.register("src/sw.js")</script>
     <link rel="stylesheet" type="text/css" href="/src/style.css">
@@ -72,9 +72,9 @@
             <div class="logo" style="justify-content: flex-start;width: -webkit-fill-available;">
                 <a href="../" class="primary-btn" title="Go back to Home"
                     style="padding: 0.5rem;white-space: nowrap;max-width: fit-content;text-decoration: none;">◀ Back</a>
-                <h1>DownGD <span>2.O</span></h1>
+                <h1>GitFolder<span>Downloader</span></h1>
             </div>
-            <p>DownGD 2.O. Open Source Client-Side App.</p>
+            <p>Git Folder Downloader. Open Source Client-Side App.</p>
         </header>
 
         <!-- Quick Start -->
@@ -94,7 +94,7 @@
                 <div class="step-num">2</div>
                 <div>
                     <h3>Paste & Download</h3>
-                    <p>Paste the link into DownGD 2.O. The app automatically detects the branch, recursive path, and
+                    <p>Paste the link into Git Folder Downloader. The app automatically detects the branch, recursive path, and
                         file structure. Click <strong>Download</strong> to get a ZIP file.</p>
                     <p>Use the <strong>Paste</strong> button to automatically paste a GitHub URL from your clipboard.
                     </p>
@@ -117,12 +117,12 @@
             <h2><span class="material-icons">link</span>Smart Links</h2>
             <p>You can generate direct download links for your team or documentation using the URL query feature.</p>
             <h3>How it works:</h3>
-            <p>Append the GitHub URL after <code>?=</code> to the DownGD 2.O URL:</p>
+            <p>Append the GitHub URL after <code>?=</code> to the Git Folder Downloader URL:</p>
             <div class="code-block">
-                https://DownGD.github.io/<code>?=</code>/user/repo/tree/branch/folder<br /><br />
-                https://DownGD.github.io/<code>?url=</code>/user/repo/tree/branch/folder
+                https://GitFolderDownloader.github.io/<code>?=</code>/user/repo/tree/branch/folder<br /><br />
+                https://GitFolderDownloader.github.io/<code>?url=</code>/user/repo/tree/branch/folder
             </div><br>
-            <p>When a user opens this link, DownGD 2.O will <strong>automatically launch</strong>, fetch the files, and
+            <p>When a user opens this link, Git Folder Downloader will <strong>automatically launch</strong>, fetch the files, and
                 prepare the download without any user input.</p>
 
             <h3>Advanced URL Parameters</h3>
@@ -137,9 +137,9 @@
             <h4>Examples</h4>
             <div class="code-block">
                 <!-- Example: download first 10 files -->
-                https://DownGD.github.io/api/?url=https://github.com/user/repo/tree/main/folder&st=0&mx=10&name=part1<br><br>
+                https://GitFolderDownloader.github.io/api/?url=https://github.com/user/repo/tree/main/folder&st=0&mx=10&name=part1<br><br>
                 <!-- Example: download a single file and return -->
-                https://DownGD.github.io/api/?url=https://github.com/user/repo/blob/main/readme.md&name=readme.md&return=https://example.com/
+                https://GitFolderDownloader.github.io/api/?url=https://github.com/user/repo/blob/main/readme.md&name=readme.md&return=https://example.com/
             </div>
         </section>
 
@@ -250,7 +250,7 @@
         <!-- Preview & Progress -->
         <section class="wiki-card">
             <h2><span class="material-icons">pending_actions</span>Preview & Progress</h2>
-            <p>Before downloading, DownGD 2.O shows a live preview of the first 50 files and a progress bar during the
+            <p>Before downloading, Git Folder Downloader shows a live preview of the first 50 files and a progress bar during the
                 download process. The API/headless page also exposes a simple progress UI (title, numeric status, and a
                 bar).</p>
         </section>
@@ -283,7 +283,7 @@
 
             <h3>How it constructs the URL</h3>
             <div class="code-block">
-                finalUrl = 'https://downgd.github.io/api/?url=' + encodeURIComponent(location.href)
+                finalUrl = 'https://GitFolderDownloader.github.io/api/?url=' + encodeURIComponent(location.href)
                 + '&name=' + encodeURIComponent(name)
                 + (st ? '&st=' + encodeURIComponent(st) : '')
                 + (mx ? '&mx=' + encodeURIComponent(mx) : '');

@@ -1,6 +1,6 @@
 {
-  "name": "DownGD",
-  "short_name": "DownGD",
+  "name": "Git Folder Downloader",
+  "short_name": "Git Folder Downloader",
   "start_url": "./",
   "display": "standalone",
   "description": "The fastest tool to download specific GitHub folders, sub-directories, or files as ZIP. Supports private repos, custom tokens, and 8+ themes. 100% Client-side.",
@@ -60,17 +60,17 @@
     },
     {
       "name": "View repo",
-      "url": "https://github.com/DownGD/DownGD.GitHub.io",
+      "url": "https://github.com/GitFolderDownloader/GitFolderDownloader.GitHub.io",
       "description": "view repo to give us a star"
     },
     {
       "name": "Download Extension",
-      "url": "https://downgd.github.io/api/?=https://github.com/DownGD/downgd.github.io/tree/main/extension&name=Extension",
+      "url": "https://GitFolderDownloader.github.io/api/?=https://github.com/GitFolderDownloader/GitFolderDownloader.github.io/tree/main/extension&name=Extension",
       "description": "download extension for github.com"
     },
     {
       "name": "or use userscrit",
-      "url": "https://downgd.github.io/script/downgd-download-button-user.js",
+      "url": "https://GitFolderDownloader.github.io/script/GitFolderDownloader-download-button-user.js",
       "description": "use userscript for github.com in scriptrunner extensions"
     }
 

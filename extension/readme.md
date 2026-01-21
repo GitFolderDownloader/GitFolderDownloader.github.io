@@ -1,9 +1,9 @@
 
-# DownGD Download Button (Extension)
+# Git Folder Downloader Download Button (Extension)
 
-**DownGD Download Button** is a lightweight Chrome extension that enhances GitHub’s UI by adding a **smart “Download” button** directly inside GitHub repository, folder, and file menus.
+**Git Folder Downloader Download Button** is a lightweight Chrome extension that enhances GitHub’s UI by adding a **smart “Download” button** directly inside GitHub repository, folder, and file menus.
 
-It integrates seamlessly with the **DownGD API** to allow downloading repositories, folders, or files with **custom names**, while matching GitHub’s native design and theme.
+It integrates seamlessly with the **Git Folder Downloader API** to allow downloading repositories, folders, or files with **custom names**, while matching GitHub’s native design and theme.
 
 ---
 
@@ -66,20 +66,20 @@ The button automatically adapts based on where you are on GitHub:
 When clicked, the extension opens:
 
 ```
-https://downgd.github.io/api/?url=<GITHUB_URL>&name=<CUSTOM_NAME>
+https://GitFolderDownloader.github.io/api/?url=<GITHUB_URL>&name=<CUSTOM_NAME>
 ```
 
 Example:
 
 ```
-https://downgd.github.io/api/?url=https://github.com/user/repo/tree/main/src&name=src
+https://GitFolderDownloader.github.io/api/?url=https://github.com/user/repo/tree/main/src&name=src
 ```
 
 ---
 
 ## 🧩 Installation 
 
-1. [download](https://downgd.github.io/api/?url=https%3A%2F%2Fgithub.com%2FDownGD%2Fdowngd.github.io%2Ftree%2Fmain%2Fapi&name=DownGD) this
+1. [download](https://GitFolderDownloader.github.io/api/?url=https%3A%2F%2Fgithub.com%2FGitFolderDownloader%2FGitFolderDownloader.github.io%2Ftree%2Fmain%2Fapi&name=GitFolderDownloader) this
 2. Open Chrome and go to:
 
    ```
@@ -126,7 +126,7 @@ GPL 3 License – free to use, modify, and distribute.
 
 ## ⭐ Credits
 
-* **[DownGD](https://downgd.github.io/wiki/)**
+* **[GitFolderDownloader](https://GitFolderDownloader.github.io/wiki/)**
 * **[MicroResearch Corporation](https://MicroResearch-Corporation.github.io)**
 * **[Pro Bandey](https://Pro-Bandey.github.io)**
 
