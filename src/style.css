@@ -1103,3 +1103,9 @@ footer {
   flex-direction: column;
   align-items: center;
 }
+.github-corner {
+     position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+}
