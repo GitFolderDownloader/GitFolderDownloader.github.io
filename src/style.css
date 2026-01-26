@@ -202,14 +202,11 @@ main {
 }
 
 .fix {
-  position: fixed;
-  top: 60%;
-  right: 50%;
-  transform: translate(50%);
-  font-size: 20px;
-  color: var(--text-sec);
-  text-transform: capitalize;
-  text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+    color: var(--text-sec);
+    text-transform: capitalize;
+    text-decoration: none;
 }
 
 .fix p a {
