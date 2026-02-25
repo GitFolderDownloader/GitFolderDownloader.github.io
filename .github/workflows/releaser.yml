@@ -142,7 +142,7 @@ jobs:
           steps.tagcheck.outputs.exists == 'false'
         run: |
           cat <<EOF > notes.txt
-          Release v${DATE}
+          Release Release→${DATE}
 
           Author: M Ramzan Ch
           Company: MicroResearch Corporation
