@@ -75,8 +75,8 @@ function setupEventListeners() {
 
     dom.inputsStartMax.forEach(input => {
       input.addEventListener("wheel", e => {
-        e.preventDefault();     
-        input.focus();         
+        e.preventDefault();
+        input.focus();
         const step = Number(input.step) || 1;
         const min = input.min !== "" ? Number(input.min) : -Infinity;
         const max = input.max !== "" ? Number(input.max) : Infinity;
@@ -85,7 +85,7 @@ function setupEventListeners() {
         value += e.deltaY < 0 ? step : -step;
 
         input.value = Math.min(max, Math.max(min, value));
-        updateUrlParam();     
+        updateUrlParam();
       });
     });
 
@@ -120,20 +120,20 @@ function setupEventListeners() {
     dom.themeSelect.addEventListener("change", (t) => {
       changeTheme(t.target.value);
     }),
-dom.forceZipInput.addEventListener("change", () => {
-  state.forceZip = dom.forceZipInput.checked;
-  localStorage.setItem("force_zip", state.forceZip);
-});
+    dom.forceZipInput.addEventListener("change", () => {
+      state.forceZip = dom.forceZipInput.checked;
+      localStorage.setItem("force_zip", state.forceZip);
+    });
 
-    dom.themeBtn.addEventListener("click", () => {
-      const t = Object.keys(THEME_DEFAULTS),
-        e = (t.indexOf(state.theme) + 1) % t.length;
-      changeTheme(t[e]);
-    }),
+  dom.themeBtn.addEventListener("click", () => {
+    const t = Object.keys(THEME_DEFAULTS),
+      e = (t.indexOf(state.theme) + 1) % t.length;
+    changeTheme(t[e]);
+  }),
     dom.accentInput.addEventListener("input", (t) => {
       (state.accentColor = t.target.value),
-      state.accentIsCustom = true;
-        applyAccentColor(state.accentColor),
+        state.accentIsCustom = true;
+      applyAccentColor(state.accentColor),
         localStorage.setItem("accent", state.accentColor);
     });
 }
@@ -284,7 +284,7 @@ async function startProcess() {
       t.branch = e.default_branch;
     }
     "blob" === t.type ? await downloadSingleFile(t) : await downloadFolder(t),
-      updateStatus("Complete!", 100),
+      updateStatus("Completed!", 100),
       showToast("Download Finished", "success");
   } catch (t) {
     showToast(t.message, "error"),
@@ -318,7 +318,7 @@ async function downloadFolder(t) {
 
   const a = allBlobs.slice(startIndex, endIndex);
 
-  dom.fileCount.textContent = `Downloading ${a.length} files (${startIndex}-${endIndex} of ${allBlobs.length})`;
+  dom.fileCount.textContent = `Downloading ${a.length} files from (${startIndex} to ${endIndex} of ${allBlobs.length})`;
   renderPreview(a);
 
   const s = new JSZip();
@@ -331,7 +331,7 @@ async function downloadFolder(t) {
             o = t.path ? e.path.substring(t.path.length + 1) : e.path;
           s.file(o, n),
             r++,
-            updateStatus(`Downloading ${r}/${a.length}`, (r / a.length) * 90);
+            updateStatus(`Downloaded ${r} from ${a.length}`, (r / a.length) * 90);
         } catch (t) { }
       })
     );

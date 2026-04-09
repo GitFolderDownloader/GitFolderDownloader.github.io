@@ -916,6 +916,13 @@ footer {
   .wiki-toc {
     display: none;
   }
+
+  .wiki-header h1 {
+    font-size: 1.5rem;
+  }
+  .wiki-header p {
+    display: none;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1058,6 +1065,9 @@ footer {
     max-width: 250px;
   }
 
+  header {
+    padding: 0 3.5rem 0 0;
+  }
 
 }
 
