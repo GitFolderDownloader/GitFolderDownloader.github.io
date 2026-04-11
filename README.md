@@ -17,19 +17,24 @@ A powerful, pixel-perfect, single-page web application to download files or fold
 To share a direct download link with a friend, simply add the GitHub URL after the hash (`?=`):
 
 ### Direct
+
 > [https://GitFolderDownloader.github.io/?=https://github.com/facebook/react/tree/main/packages](https://GitFolderDownloader.github.io/?=https://github.com/facebook/react/tree/main/packages)
 
 ### With Name
+
 > [https://GitFolderDownloader.github.io/?=https://github.com/facebook/react/tree/main/packages&name=react-core](https://GitFolderDownloader.github.io/?=https://github.com/facebook/react/tree/main/packages&name=react-core)
 
 ### Partial / Range Download
+
 If a repository is too large, you can limit the number of files to download using `&st` (Start) and `&mx` (Max).
+
 > [https://GitFolderDownloader.github.io/?=https://github.com/facebook/react/tree/main/packages&st=50&mx=150](https://GitFolderDownloader.github.io/?=https://github.com/facebook/react/tree/main/packages&st=50&mx=150)
 
-*   `&st=50`: Start downloading from the 50th file.
-*   `&mx=150`: Stop downloading at the 150th file.
+- `&st=50`: Start downloading from the 50th file.
+- `&mx=150`: Stop downloading at the 150th file.
 
 When the user visits this link, the app will:
+
 1. Parse the URL.
 2. Auto-fill the input and limit fields.
 3. Immediately start fetching and zipping files **50 to 150**.
@@ -42,30 +47,39 @@ When the user visits this link, the app will:
 4. Paste token. It is saved in your browser's LocalStorage and never sent to any 3rd party server.
 
 ---
+
 ## 🔗 API
 
 To embed a direct download link within your website/page, simply use this pattern. The API also supports the `&st` and `&mx` parameters.
 
 ### Embed as a link
+
 ```html
 <!-- Download all files -->
-<a href="https://GitFolderDownloader.github.io/api/?=https://github.com/facebook/react/tree/main/packages&name=react-core">Download Core</a>
+<a
+  href="https://GitFolderDownloader.github.io/api/?=https://github.com/facebook/react/tree/main/packages&name=react-core"
+  >Download Core</a
+>
 
 <!-- Download files 0 to 100 only -->
-<a href="https://GitFolderDownloader.github.io/api/?=https://github.com/facebook/react/tree/main/packages&name=react-core&st=0&mx=100">Download Part 1</a>
+<a
+  href="https://GitFolderDownloader.github.io/api/?=https://github.com/facebook/react/tree/main/packages&name=react-core&st=0&mx=100"
+  >Download Part 1</a
+>
 ```
 
 ### Use via JavaScript
+
 ```javascript
 function triggerDownload() {
-    const repo = "https://github.com/facebook/react/tree/main/packages";
-    
-    // Optional: Add limits for large folders
-    const params = "&st=0&mx=200"; 
-    
-    const apiUrl = `https://git-zip-pro.vercel.app/api/?url=${repo}${params}`;
- 
-    window.open(apiUrl, '_blank');
+  const repo = "https://github.com/facebook/react/tree/main/packages";
+
+  // Optional: Add limits for large folders
+  const params = "&st=0&mx=200";
+
+  const apiUrl = `https://git-zip-pro.vercel.app/api/?url=${repo}${params}`;
+
+  window.open(apiUrl, "_blank");
 }
 ```
 
@@ -77,22 +91,22 @@ Git Folder Downloader also provides a **GitHub-integrated userscript** that adds
 
 ### ✨ What the Userscript Does
 
-* Injects a **“Download Repo / Folder / File”** action into GitHub’s context menus
-* Automatically detects:
-  * **Repository menu** → shows **Download Repo**
-  * **Folder menu** → shows **Download Folder**
-  * **File menu** → shows **Download**
-* Opens a **GitHub-themed custom popup** to set an optional download name
-* Auto-fills the popup with the current repo / folder / file name
-* Fully matches GitHub light & dark themes
-* Uses the official **Git Folder Downloader API** under the hood
+- Injects a **“Download Repo / Folder / File”** action into GitHub’s context menus
+- Automatically detects:
+  - **Repository menu** → shows **Download Repo**
+  - **Folder menu** → shows **Download Folder**
+  - **File menu** → shows **Download**
+- Opens a **GitHub-themed custom popup** to set an optional download name
+- Auto-fills the popup with the current repo / folder / file name
+- Fully matches GitHub light & dark themes
+- Uses the official **Git Folder Downloader API** under the hood
 
 ### 🧩 Supported Script Runners
 
-* Tampermonkey
-* Violentmonkey
-* ScriptRunner (Chromium-based extensions)
-* Other userscript-compatible extensions
+- Tampermonkey
+- Violentmonkey
+- ScriptRunner (Chromium-based extensions)
+- Other userscript-compatible extensions
 
 ### 🛠️ How to Install
 
@@ -111,28 +125,28 @@ Git Folder Downloader also provides a **GitHub-integrated userscript** that adds
 
 The Git Folder Downloader userscript can also be packaged as a **lightweight browser extension** using ScriptRunner-style extensions.
 
-## [Download Now](https://GitFolderDownloader.github.io/api/?=https://github.com/GitFolderDownloader/GitFolderDownloader.github.io/tree/main/extension&name=Extension)
+## [Go To](https://github.com/GitFolderDownloader/GitFolderDownloader-Download-Button)
 
 ### 🚀 Extension Capabilities
 
-* Zero background services
-* No permissions beyond GitHub pages
-* Runs fully client-side
-* Injects UI only when GitHub menus are detected
-* SPA-safe (works with GitHub Turbo / PJAX navigation)
+- Zero background services
+- No permissions beyond GitHub pages
+- Runs fully client-side
+- Injects UI only when GitHub menus are detected
+- SPA-safe (works with GitHub Turbo / PJAX navigation)
 
 ### 📦 Extension Use Cases
 
-* Personal daily GitHub usage
-* Developers frequently downloading subfolders
-* Lightweight alternative to full GitHub downloader extensions
-* No tracking, no analytics, no servers
+- Personal daily GitHub usage
+- Developers frequently downloading subfolders
+- Lightweight alternative to full GitHub downloader extensions
+- No tracking, no analytics, no servers
 
 ### 🔐 Privacy
 
-* No data is collected
-* No GitHub tokens are accessed by the script
-* Downloads are handled entirely by **Git Folder Downloader API** in a new tab
+- No data is collected
+- No GitHub tokens are accessed by the script
+- Downloads are handled entirely by **Git Folder Downloader API** in a new tab
 
 ---
 
