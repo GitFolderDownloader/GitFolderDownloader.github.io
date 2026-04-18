@@ -3,7 +3,7 @@ name: Auto Releaser By MicroResearch Corporation
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *' # Daily at 00:00 UTC
+    - cron: '0 0 * * 1' # Daily at 00:00 UTC
 
 permissions:
   contents: write
