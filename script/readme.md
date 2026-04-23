@@ -129,5 +129,5 @@ GPL 3 License – free to use, modify, and distribute.
 ## ⭐ Credits
 
 * **[Git Folder Downloader](https://GitFolderDownloader.github.io/wiki/)**
-* **[MicroResearch Corporation](https://MicroResearch-Corporation.github.io)**
+* **[MainRoute Core](https://mainroute-core.github.io)**
 * **[Pro Bandey](https://Pro-Bandey.github.io)**
