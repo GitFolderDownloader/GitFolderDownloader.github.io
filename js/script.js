@@ -3,7 +3,7 @@ const API_BASE = "https://api.github.com/repos",
   THEME_DEFAULTS = {
     light: "#923d3dff",
     dark: "#b46363ff",
-    amoled: "#81308bff",
+    amoled: "#e487ef ",
     dracula: "#bd93f9ff",
     cyberpunk: "#00f3ff",
     forest: "#4ade80ff",

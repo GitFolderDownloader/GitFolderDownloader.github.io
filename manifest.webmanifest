@@ -1,0 +1,161 @@
+{
+  "name": "Git Folder Downloader",
+  "short_name": "G F D",
+  "description": "The fastest tool to download specific GitHub folders, sub-directories, or files as ZIP. Supports private repos, custom tokens, and 8+ themes. 100% Client-side.",
+  "start_url": "./",
+  "scope": "./",
+  "id": "./",
+  "theme_color": "#4ade80",
+  "background_color": "#1e2820",
+  "display": "standalone",
+  "orientation": "any",
+  "lang": "en",
+
+  "categories": [
+    "technology",
+    "website",
+    "github",
+    "gownloader",
+    "development"
+  ],
+
+  "display_override": ["window-controls-overlay"],
+
+  "prefer_related_applications": false,
+
+  "protocol_handlers": [
+    {
+      "protocol": "mailto",
+      "url": "/newEmail?to=%s"
+    }
+  ],
+
+  "icons": [
+    {
+      "src": "./favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "./src/16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "./src/32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "./src/144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./src/144-maskable.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./src/192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./src/192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./src/512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./src/512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+
+  "screenshots": [
+    {
+      "src": "https://iili.io/fNetXhN.png",
+      "form_factor": "wide",
+      "type": "image/png",
+      "description": "A screenshot of the home page"
+    },
+    {
+      "src": "https://iili.io/fNetwBt.png",
+      "form_factor": "wide",
+      "type": "image/png",
+      "description": "A screenshot of the home page with downloaadin"
+    },
+    {
+      "src": "https://iili.io/fNetNEX.png",
+      "form_factor": "wide",
+      "type": "image/png",
+      "description": "A screenshot of the wiki page"
+    },
+    {
+      "src": "https://iili.io/fNetXhN.png",
+      "type": "image/png",
+      "description": "A screenshot of the home page"
+    },
+    {
+      "src": "https://iili.io/fNetwBt.png",
+      "type": "image/png",
+      "description": "A screenshot of the home page with downloaadin"
+    },
+    {
+      "src": "https://iili.io/fNetNEX.png",
+      "type": "image/png",
+      "description": "A screenshot of the wiki page"
+    }
+  ],
+
+  "shortcuts": [
+    {
+      "name": "See Wiki",
+      "url": "./wiki/",
+      "description": "see wiki page",
+      "icons": [
+        {
+          "src": "./src/144.png",
+          "sizes": "144x144",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Download Extension",
+      "url": "/api/?=https://github.com/GitFolderDownloader/GitFolderDownloader.github.io/tree/main/extension&name=Extension",
+      "description": "download extension for github.com",
+      "icons": [
+        {
+          "src": "./src/144.png",
+          "sizes": "144x144",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Or Use UserCcrit",
+      "url": "/script/GitFolderDownloader-download-button-user.js",
+      "description": "use userscript for github.com in scriptrunner extensions",
+      "icons": [
+        {
+          "src": "./src/144.png",
+          "sizes": "144x144",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}
