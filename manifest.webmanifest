@@ -84,42 +84,6 @@
     }
   ],
 
-  "screenshots": [
-    {
-      "src": "https://iili.io/fNetXhN.png",
-      "form_factor": "wide",
-      "type": "image/png",
-      "description": "A screenshot of the home page"
-    },
-    {
-      "src": "https://iili.io/fNetwBt.png",
-      "form_factor": "wide",
-      "type": "image/png",
-      "description": "A screenshot of the home page with downloaadin"
-    },
-    {
-      "src": "https://iili.io/fNetNEX.png",
-      "form_factor": "wide",
-      "type": "image/png",
-      "description": "A screenshot of the wiki page"
-    },
-    {
-      "src": "https://iili.io/fNetXhN.png",
-      "type": "image/png",
-      "description": "A screenshot of the home page"
-    },
-    {
-      "src": "https://iili.io/fNetwBt.png",
-      "type": "image/png",
-      "description": "A screenshot of the home page with downloaadin"
-    },
-    {
-      "src": "https://iili.io/fNetNEX.png",
-      "type": "image/png",
-      "description": "A screenshot of the wiki page"
-    }
-  ],
-
   "shortcuts": [
     {
       "name": "See Wiki",
@@ -156,6 +120,48 @@
           "type": "image/png"
         }
       ]
+    }
+  ],
+
+  "screenshots": [
+    {
+      "src": "./src/social-1.png",
+      "form_factor": "wide",
+      "sizes": "1440x810",
+      "type": "image/png",
+      "description": "A screenshot of the home page"
+    },
+    {
+      "src": "./src/social-2.png",
+      "form_factor": "wide",
+      "sizes": "1440x810",
+      "type": "image/png",
+      "description": "A screenshot of the home page with downloaadin"
+    },
+    {
+      "src": "./src/social-3.png",
+      "form_factor": "wide",
+      "sizes": "1440x810",
+      "type": "image/png",
+      "description": "A screenshot of the wiki page"
+    },
+    {
+      "src": "./src/social_1.png",
+      "sizes": "720x1480",
+      "type": "image/png",
+      "description": "A screenshot of the home page"
+    },
+    {
+      "src": "./src/social_2.png",
+      "sizes": "720x1480",
+      "type": "image/png",
+      "description": "A screenshot of the home page with downloaadin"
+    },
+    {
+      "src": "./src/social_3.png",
+      "sizes": "720x1480",
+      "type": "image/png",
+      "description": "A screenshot of the wiki page"
     }
   ]
 }

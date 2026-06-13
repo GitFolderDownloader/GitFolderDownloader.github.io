@@ -112,7 +112,7 @@ Git Folder Downloader also provides a **GitHub-integrated userscript** that adds
 
 1. Install a userscript manager (Tampermonkey / ScriptRunner).
 2. Create a **new userscript**.
-3. Paste the provided [GitFolderDownloader userscript](https://GitFolderDownloader.github.io/script/GitFolderDownloader-download-button-user.js) code or direct link in url bar.
+3. Paste the provided [GitFolderDownloader userscript](https://GitFolderDownloader.github.io/script/gfd.js) code or direct link in url bar.
 4. Save and enable the script.
 5. Visit any GitHub repository, folder, or file.
 6. Open the GitHub menu → click **Download Repo / Folder / Download**.

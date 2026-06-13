@@ -6,8 +6,8 @@
 // @author       M Ramzan Ch
 // @match        https://github.com/*
 // @icon         https://GitFolderDownloader.github.io/src/icon.svg
-// @updateURL    https://GitFolderDownloader.github.io/script/GitFolderDownloader-download-button-user.js
-// @downloadURL  https://GitFolderDownloader.github.io/script/GitFolderDownloader-download-button-user.js
+// @updateURL    https://GitFolderDownloader.github.io/script/gfd.js
+// @downloadURL  https://GitFolderDownloader.github.io/script/gfd.js
 // @grant        none
 // ==/UserScript==
 
